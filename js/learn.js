@@ -91,7 +91,7 @@ function CheckAnswer() {
         const answerId = Lesson.shift();
 
         // Check if Correct or Wrong
-        if (questionAnswer.value == LessonArray[answerId].english) {
+        if (questionAnswer.value.toLowerCase() == LessonArray[answerId].english) {
             NextQuestion();
         } else {
             IsPreviousAnswerWrong = true;
