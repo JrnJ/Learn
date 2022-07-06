@@ -16,33 +16,6 @@ let LessonLength = 0;
 let WrongAnswers = [];
 let IsPreviousAnswerWrong = false;
 
-// function StartLesson(questions) {
-//     // Set Defaults
-//     LessonLength = questions.length;
-//     Lesson = [];
-//     WrongAnswers = [];
-
-//     // Scamble Lesson
-//     // Create temporary number array
-//     let numbers = [];
-//     for (let i = 0; i < questions.length; i++)
-//         numbers.push(i);
-
-//     // Fill Lesson
-//     for (let i = questions.length; i > 0; i--) {
-//         // Random
-//         let rand = Math.floor(numbers.length / 1 * Math.random());
-
-//         // Add 
-//         Lesson.push(numbers[rand]);
-//         numbers.splice(rand, 1);
-//     }
-
-//     totalQuestions.textContent = LessonLength;
-//     NextQuestion();
-//     UpdateScore();
-// }
-
 function StartLesson(questions) {
     // Set Defaults
     LessonLength = questions.length;
