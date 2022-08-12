@@ -39,3 +39,10 @@ button:active {
 /* .submitAnswer {
     background-color: #5dfa5d;
 } */
+
+#canvas {
+    border: solid 2px #191919;
+
+    width: 300px;
+    height: 300px;
+}

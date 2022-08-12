@@ -10,6 +10,7 @@ const totalQuestions = document.getElementById("totalQuestions");
 const questionsLeft = document.getElementById("questionsLeft");
 const correctQuestionCount = document.getElementById("correctQuestionCount");
 const wrongQuestionCount = document.getElementById("wrongQuestionCount");
+const lessonRetries = document.getElementById("lessonRetries");
 
 let Lesson = [];
 let LessonLength = 0;
@@ -48,7 +49,23 @@ function StartLesson(questions) {
 
 function LessonFinished() {
     if (WrongAnswers.length > 0) {
-        // Display old score too
+        // Add score to page
+        const containerElement = document.createElement('div');
+
+        const correctElement = document.createElement('span');
+        correctElement.innerHTML = (LessonLength - WrongAnswers.length);
+        correctElement.style.color = "green";
+        const deviderElement = document.createElement('span');
+        deviderElement.innerHTML = " / ";
+        const wrongElement = document.createElement('span');
+        wrongElement.innerHTML = WrongAnswers.length;
+        wrongElement.style.color = "red";
+
+        containerElement.appendChild(correctElement);
+        containerElement.appendChild(deviderElement);
+        containerElement.appendChild(wrongElement);
+
+        lessonRetries.prepend(containerElement);
 
         // Start new lesson with wrong answers
         StartLesson(WrongAnswers);
@@ -119,103 +136,42 @@ const OnWindowLoaded = () => {
 
 window.onload = OnWindowLoaded();
 
-// // Array of type int, not JPTranslation!
-// let WrongAnswers = [];
-// let ScrambledQuestions = [];
+let isDrawing = false;
+let x = 0;
+let y = 0;
 
-// let correctCount = 0;
-// let doNextQUestion = true;
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
 
-// // Starts the lesson
-// function StartLesson() {
-//     // Scamble Lesson
-//     let numbers = []; // internal use only
-//     for (let i = 0; i < LessonArray.length; i++)
-//         numbers.push(i);
+canvas.addEventListener('mousedown', (e) => {
+    x = e.offsetX;
+    y = e.offsetY;
+    isDrawing = true;
+});
 
-//     // Create array of numbers that will point to LessonArray, lessonarray will NEVER be changed
-//     // Storing an int reference is cheaper than storing a custom class with 4 strings
-//     for (let i = LessonArray.length; i > 0; i--) {
-//         // Random
-//         let rand = Math.floor(numbers.length / 1 * Math.random());
+canvas.addEventListener('mousemove', (e) => {
+    if (isDrawing) {
+        drawLine(ctx, x, y, e.offsetX, e.offsetY);
+        x = e.offsetX;
+        y = e.offsetY;
+    }
+});
 
-//         // Add 
-//         ScrambledQuestions.push(numbers[rand]);
-//         numbers.splice(rand, 1);
-//     }
+window.addEventListener('mouseup', (e) => {
+    if (isDrawing) {
+        drawLine(ctx, x, y, e.offsetX, e.offsetY);
+        x = 0;
+        y = 0;
+        isDrawing = false;
+    }
+});
 
-//     //
-//     NewQuestion();
-// }
-
-// // Checks the Answer
-// function CheckAnswer() {
-//     if (questionAnswer.value == LessonArray[ScrambledQuestions[0]].english) {
-//         correctCount += 1;
-//         correctQuestionCount.textContent = correctCount;
-
-//         doNextQUestion = true;
-//     } else {
-//         WrongAnswers.push(1);
-//         wrongQuestionCount.textContent = WrongAnswers.length;
-
-//         question.style.color = "#FF0000";
-//         question.textContent += " = " + LessonArray[ScrambledQuestions[0]].english;
-//         doNextQUestion = false;
-//     }
-
-//     if (ScrambledQuestions.length <= 0) {
-//         if (WrongAnswers.length > 0) {
-//             ScrambledQuestions = WrongAnswers;
-//             correctCount = 0;
-
-//             questionsLeft.textContent = ScrambledQuestions.length;
-
-//             NewQuestion();
-//         } else {
-//             alert('gj');
-//         }
-
-//     } else {
-//         // Remove first int from array
-//         ScrambledQuestions.shift();
-//         questionsLeft.textContent = ScrambledQuestions.length;
-
-//         if (doNextQUestion) NewQuestion();
-//     }
-// }
-
-// // Presents a new question
-// function NewQuestion() {
-//     question.style.color = "#FFFFFF";
-//     questionAnswer.value = "";
-
-//     questionsLeft.textContent = LessonArray.length - ScrambledQuestions.length;
-//     question.textContent = LessonArray[ScrambledQuestions[0]].hiragana;
-// }
-
-// const OnWindowLoaded = () => {
-//     console.log(exerciseParam);
-//     console.log(LessonArray);
-
-//     // Check for enter
-//     questionAnswer.addEventListener("keypress", (e) => {
-//         if (e.key === "Enter") {
-//             if (doNextQUestion) {
-//                 CheckAnswer();
-//             } else {
-//                 doNextQUestion = true;
-//                 NewQuestion();
-//             }
-//         }
-//     });
-
-//     // Fill Necessarty Data
-//     lessonTitle.textContent = exerciseParam;
-//     document.title = "Lesson | " + exerciseParam;
-//     totalQuestions.textContent = LessonArray.length;
-
-//     StartLesson();
-// }
-
-// window.onload = OnWindowLoaded();
+function drawLine(context, x1, y1, x2, y2) {
+    context.beginPath();
+    context.strokeStyle = 'white';
+    context.lineWidth = 3;
+    context.moveTo(x1, y1);
+    context.lineTo(x2, y2);
+    context.stroke();
+    context.closePath();
+}
