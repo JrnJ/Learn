@@ -1,5 +1,6 @@
 const para = new URLSearchParams(window.location.search);
 const exerciseParam = para.get("exercise");
+const modeParam = para.get("mode");
 const LessonArray = StrToLesson(exerciseParam);
 
 const lessonTitle = document.getElementById("lessonTitle")
@@ -47,6 +48,7 @@ function StartLesson(questions) {
     UpdateScore();
 }
 
+// Lesson is finished, not over, wrong ansers might be present
 function LessonFinished() {
     if (WrongAnswers.length > 0) {
         // Add score to page
@@ -70,9 +72,16 @@ function LessonFinished() {
         // Start new lesson with wrong answers
         StartLesson(WrongAnswers);
     } else {
-        // Do something cool ig
-        alert("Finished!");
+        LessonOver();
     }
+}
+
+// Lesson is actually over, nothing left to do
+function LessonOver() {
+    // Do something cool ig
+    alert("Finished!");
+
+    window.location = './results.html?exercise=' + exerciseParam + '&mode=' + modeParam;
 }
 
 function CheckAnswer() {
@@ -120,6 +129,8 @@ function UpdateScore() {
 }
 
 const OnWindowLoaded = () => {
+    ReadFile();
+
     // Check for enter
     questionAnswer.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {

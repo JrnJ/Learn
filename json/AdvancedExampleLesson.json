@@ -1,0 +1,22 @@
+{
+    "name": "Advanced Example",
+    "learning": 2,
+    "learningFrom": 0,
+    "content": [{
+            "to": "Japan",
+            "from": [
+                "にほん",
+                "ニホン",
+                "日本"
+            ]
+        },
+        {
+            "to": "Japanese",
+            "from": [
+                "にほん",
+                "ニホン",
+                "日本"
+            ]
+        }
+    ]
+}

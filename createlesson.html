@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/createlesson.css" />
+</head>
+
+<body>
+
+    <center>
+        <span>Name:</span><br>
+        <input type="text"><br><br>
+    
+        <span>Language Learning:</span><br>
+        <input type="text"><br><br>
+    
+        <span>Learning From Language:</span><br>
+        <input type="text"><br><br>
+
+        <br>
+        <span>Lesson Content:</span><br>
+        <div id="lessonContentElement">
+            <div>
+                <input type="text" placeholder="English">
+                <span>
+                    <input type="text" placeholder="Japanese">
+                </span>
+                <button>+</button>
+                <br>
+            </div>
+        </div>
+        <br>
+        <button onclick="addContentClick()">+ Add</button>
+    </center>
+    
+    <script src="./js/createlesson.js"></script>
+
+</body>
+
+</html>

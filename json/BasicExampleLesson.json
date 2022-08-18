@@ -1,0 +1,14 @@
+{
+    "name": "Basic Example",
+    "learning": 1,
+    "learningFrom": 0,
+    "content": [{
+            "to": "Netherlands",
+            "from": "Nederland"
+        },
+        {
+            "to": "Dutch",
+            "from": "Nederlands"
+        }
+    ]
+}
