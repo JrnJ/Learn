@@ -3,6 +3,8 @@ const lessonContentElement = document.getElementById("lessonContentElement");
 let learningLanguage = "Japanese";
 let learningFromLanguage = "English";
 
+let LessonCreating;
+
 const addContentClick = () => {
     addContent();
 }
@@ -40,3 +42,9 @@ const addContent = () => {
     // Add to page
     lessonContentElement.appendChild(containerElement);
 }
+
+function OnWindowLoaded() {
+    LessonCreating = new Lesson(0, "", "", "", "", []);
+}
+
+window.onload = OnWindowLoaded();

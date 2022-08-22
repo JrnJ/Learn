@@ -39,7 +39,9 @@ let Lessons = [];
 
 function GetAllLessons() {
     // Lessons.push(BasicExampleLessonFile);
-    Lessons.push(JSON.parse(AdvancedExampleLessonFile));
+    Lessons.push(JSON.parse(JP_EN_HiraganaFile));
+    Lessons.push(JSON.parse(JP_EN_NumbersFile));
+    Lessons.push(JSON.parse(JP_EN_ColorsFile));
 }
 
 const GetLessonByName = (name) => {
@@ -50,6 +52,8 @@ const GetLessonByName = (name) => {
     // return null;
 
     switch (name) {
-        case "Advanced Example": return JSON.parse(AdvancedExampleLessonFile);
+        case "Hiragana": return JSON.parse(AdvancedExampleLessonFile);
+        case "Numbers": return JSON.parse(AdvancedExampleLessonFile);
+        case "Colors": return JSON.parse(AdvancedExampleLessonFile);
     }
 }

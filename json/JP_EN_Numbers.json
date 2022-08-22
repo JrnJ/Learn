@@ -1,0 +1,17 @@
+{
+    "id": 0,
+    "name": "Numbers",
+    "translatedName": "数字",
+    "learning": 2,
+    "learningFrom": 0,
+    "content": [
+        {
+            "to": "Japan",
+            "from": [
+                "にほん",
+                "ニホン",
+                "日本"
+            ]
+        }
+    ]
+}
