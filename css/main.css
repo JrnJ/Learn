@@ -55,7 +55,7 @@ input:focus {
     cursor: default;
 }
 
-.cardContainer {
+#cardContainer {
     margin: 10px;
 }
 

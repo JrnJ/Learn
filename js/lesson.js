@@ -1,35 +1,55 @@
 class Lesson {
-    constructor(name, learning, learningFrom, content) {
-        this.name = name;
-        this.learning = learning;
-        this.learningFrom = learningFrom;
-        this.content = content;
+    constructor(id, name, translatedName, learning, learningFrom, content) {
+        this.id = id; // Int
+        this.name = name; // String
+        this.translatedName = translatedName; // String
+        this.learning = learning; // Int
+        this.learningFrom = learningFrom; // Int
+        this.content = content; // Array of Translation
     }
 };
 
 class Translation {
     constructor(to, from) {
-        this.to = to;
-        this.from = from;
+        this.to = to; // String
+        this.from = from; // String
     }
 };
 
-const Languages = {
+class Dictionary {
+    constructor(name, id) {
+        this.name = name;
+        this.id = id;
+    }
+};
+
+const Languages = Object.freeze({
     English: 0,
     Dutch: 1,
     Japanese: 2
-};
+});
 
-// Basic
-const BasicExampleTranslation = new Translation("Netherlands", "Nederland");
-const BasicExampleTranslationTwo = new Translation("Dutch", "Nederlands");
+const LanguageCodes = Object.freeze({
+    EN: 0,
+    NL: 1,
+    JP: 2
+});
 
-const BasicContent = [ BasicExampleTranslation, BasicExampleTranslationTwo ];
-let BasicExampleLesson = new Lesson("Basic Example", Languages.Dutch, Languages.English, BasicContent);
+let Lessons = [];
 
-// Advanced
-const AdvancedExampleTranslation = new Translation("Japan", ["にほん", "ニホン", "日本"]);
-const AdvancedExampleTranslationTwo = new Translation("Japanese", ["にほん", "ニホン", "日本"]);
+function GetAllLessons() {
+    // Lessons.push(BasicExampleLessonFile);
+    Lessons.push(JSON.parse(AdvancedExampleLessonFile));
+}
 
-const AdvancedContent = [ AdvancedExampleTranslation, AdvancedExampleTranslationTwo ];
-let AdvancedExampleLesson = new Lesson("Advanced Example", Languages.Japanese, Languages.English, AdvancedContent);
+const GetLessonByName = (name) => {
+    // for (let i = 0; i < Lessons.length; i++) {
+    //     if (Lessons[i].name == name)
+    //         return Lessons[i];
+    // }
+    // return null;
+
+    switch (name) {
+        case "Advanced Example": return JSON.parse(AdvancedExampleLessonFile);
+    }
+}

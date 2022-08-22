@@ -1,5 +1,7 @@
 {
+    "id": 0,
     "name": "Advanced Example",
+    "translatedName": "高度な例",
     "learning": 2,
     "learningFrom": 0,
     "content": [{

@@ -1,7 +1,7 @@
 const para = new URLSearchParams(window.location.search);
 const exerciseParam = para.get("exercise");
 const modeParam = para.get("mode");
-const LessonArray = StrToLesson(exerciseParam);
+const CurrentLesson = GetLessonByName(exerciseParam);
 
 const lessonTitle = document.getElementById("lessonTitle")
 const question = document.getElementById("question");
@@ -13,18 +13,18 @@ const correctQuestionCount = document.getElementById("correctQuestionCount");
 const wrongQuestionCount = document.getElementById("wrongQuestionCount");
 const lessonRetries = document.getElementById("lessonRetries");
 
-let Lesson = [];
+let LessonQuestions = []; // int[]
 let LessonLength = 0;
-let WrongAnswers = [];
+let WrongAnswers = []; // int[]
 let IsPreviousAnswerWrong = false;
 
 function StartLesson(questions) {
     // Set Defaults
     LessonLength = questions.length;
-    Lesson = [];
+    LessonQuestions = [];
     WrongAnswers = [];
 
-    // Scamble Lesson
+    // Scamble LessonQuestions
     let numbers = [];
     if (isNaN(questions[0])) {
         for (let i = 0; i < questions.length; i++)
@@ -39,9 +39,11 @@ function StartLesson(questions) {
         let rand = Math.floor(numbers.length / 1 * Math.random());
 
         // Add 
-        Lesson.push(numbers[rand]);
+        LessonQuestions.push(numbers[rand]);
         numbers.splice(rand, 1);
     }
+
+    console.log(LessonQuestions);
 
     totalQuestions.textContent = LessonLength;
     NextQuestion();
@@ -87,10 +89,11 @@ function LessonOver() {
 function CheckAnswer() {
     // Make sure the user can see their mistake
     if (IsPreviousAnswerWrong == false) {
-        const answerId = Lesson.shift();
+        const answerId = LessonQuestions.shift();
+        console.log(answerId);
 
         // Check if Correct or Wrong
-        if (questionAnswer.value.toLowerCase() == LessonArray[answerId].english) {
+        if (questionAnswer.value.toLowerCase() == CurrentLesson.content[answerId].to.toLowerCase()) {
             NextQuestion();
         } else {
             IsPreviousAnswerWrong = true;
@@ -98,7 +101,7 @@ function CheckAnswer() {
 
             // Show correct stuff
             question.style.color = "#FF0000";
-            question.textContent += " = " + LessonArray[answerId].english;
+            question.textContent += " = " + CurrentLesson.content[answerId].to;
         }
 
         // Update UI
@@ -111,12 +114,12 @@ function CheckAnswer() {
 
 function NextQuestion() {
     // Check if there are no items left first
-    if (Lesson.length > 0) {
+    if (LessonQuestions.length > 0) {
         question.style.color = "#FFFFFF";
         questionAnswer.value = "";
 
-        questionsLeft.textContent = LessonLength - Lesson.length;
-        question.textContent = LessonArray[Lesson[0]].hiragana;
+        questionsLeft.textContent = LessonLength - CurrentLesson.content.length;
+        question.textContent = CurrentLesson.content[LessonQuestions[0]].from[0]; // question.textContent = LessonArray[Lesson[0]].hiragana;
     } else {
         console.log("finished");
         LessonFinished();
@@ -124,13 +127,11 @@ function NextQuestion() {
 }
 
 function UpdateScore() {
-    correctQuestionCount.textContent = LessonLength - Lesson.length - WrongAnswers.length;
+    correctQuestionCount.textContent = LessonLength - CurrentLesson.content.length - WrongAnswers.length;
     wrongQuestionCount.textContent = WrongAnswers.length;
 }
 
 const OnWindowLoaded = () => {
-    ReadFile();
-
     // Check for enter
     questionAnswer.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
@@ -142,7 +143,7 @@ const OnWindowLoaded = () => {
     lessonTitle.textContent = exerciseParam;
     document.title = "Lesson | " + exerciseParam;
 
-    StartLesson(LessonArray);
+    StartLesson(CurrentLesson.content);
 }
 
 window.onload = OnWindowLoaded();
