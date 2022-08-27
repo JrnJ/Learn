@@ -1,10 +1,11 @@
 class Lesson {
-    constructor(id, name, translatedName, learning, learningFrom, content) {
+    constructor(id, name, translatedName, learning, learningFrom, modes, content) {
         this.id = id; // Int
         this.name = name; // String
         this.translatedName = translatedName; // String
         this.learning = learning; // Int
         this.learningFrom = learningFrom; // Int
+        this.modes = modes; // Array of LessonMode
         this.content = content; // Array of Translation
     }
 };
@@ -16,10 +17,18 @@ class Translation {
     }
 };
 
+class LessonMode {
+    constructor(name, rangeStart, rangeEnd) {
+        this.name = name; // String
+        this.rangeStart = rangeStart; // Int
+        this.rangeEnd = rangeEnd; // Int
+    }
+}
+
 class Dictionary {
     constructor(name, id) {
-        this.name = name;
-        this.id = id;
+        this.name = name; // String
+        this.id = id; // Int/Other
     }
 };
 
@@ -35,25 +44,18 @@ const LanguageCodes = Object.freeze({
     JP: 2
 });
 
-let Lessons = [];
+let AllLessons = [];
 
 function GetAllLessons() {
-    // Lessons.push(BasicExampleLessonFile);
-    Lessons.push(JSON.parse(JP_EN_HiraganaFile));
-    Lessons.push(JSON.parse(JP_EN_NumbersFile));
-    Lessons.push(JSON.parse(JP_EN_ColorsFile));
+    AllLessons.push(JSON.parse(JP_EN_HiraganaFile));
+    AllLessons.push(JSON.parse(JP_EN_NumbersFile));
+    AllLessons.push(JSON.parse(JP_EN_ColorsFile));
 }
 
 const GetLessonByName = (name) => {
-    // for (let i = 0; i < Lessons.length; i++) {
-    //     if (Lessons[i].name == name)
-    //         return Lessons[i];
-    // }
-    // return null;
-
     switch (name) {
-        case "Hiragana": return JSON.parse(AdvancedExampleLessonFile);
-        case "Numbers": return JSON.parse(AdvancedExampleLessonFile);
-        case "Colors": return JSON.parse(AdvancedExampleLessonFile);
+        case "Hiragana": return JSON.parse(JP_EN_HiraganaFile);
+        case "Numbers": return JSON.parse(JP_EN_NumbersFile);
+        case "Colors": return JSON.parse(JP_EN_ColorsFile);
     }
 }

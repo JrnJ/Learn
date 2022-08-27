@@ -19,18 +19,26 @@
 <body>
 
     <center>
-        <div class="radio-toolbar">
-            <input type="radio" id="JP-EN" name="langMode" value="JP-EN" checked>
-            <label for="JP-EN">Write Romanji</label>
-    
-            <input type="radio" id="EN-JP" name="langMode" value="EN-JP">
-            <label for="EN-JP">Draw Japanese</label>
-
-            <br><br>
-            <button onclick="StartWithSettings()">Start</button>
+        <span style="font-size: 32px;">Mode: </span>
+        <div class="radio-toolbar" id="modeContainer">
+            <span>
+                <input type="radio" name="lessonMode" id="regular" value="regular" checked>
+                <label for="regular">Regular</label>
+            </span>
         </div>
+
+        <br>
+        <span style="font-size: 32px;">Add Lesson: </span>
+        <div>
+
+        </div>
+
+        <br><br>
+        <button onclick="StartWithSettings()">Start</button>
     </center>
 
+    <script src="./json/AllLessons.js"></script>
+    <script src="./js/lesson.js"></script>
     <script src="./js/customize.js"></script>
 
 </body>

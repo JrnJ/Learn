@@ -3,9 +3,9 @@ const cardContainer = document.getElementById("cardContainer");
 function OnWindowLoad() {
     GetAllLessons();
     
-    for (let i = 0; i < Lessons.length; i++) {
-        Lessons[i].id = i;
-        addLessonCardToContainer(Lessons[i]);
+    for (let i = 0; i < AllLessons.length; i++) {
+        AllLessons[i].id = i;
+        addLessonCardToContainer(AllLessons[i]);
     }
 }
 

@@ -1,12 +1,29 @@
-const lessonContentElement = document.getElementById("lessonContentElement");
+const lessonContentElement = document.querySelector('#lessonContentElement');
+
+const lessonNameInput = document.getElementById("lessonNameInput");
+const lessonTranslatedNameInput = document.getElementById("lessonTranslatedNameInput");
+const lessonLanguageLearningInput = document.getElementById("lessonLanguageLearningInput");
+const lessonLearningFromLanguageInput = document.getElementById("lessonLearningFromLanguageInput");
 
 let learningLanguage = "Japanese";
 let learningFromLanguage = "English";
 
 let LessonCreating;
 
+let Content = [];
+
 const addContentClick = () => {
     addContent();
+}
+
+const SaveLessonClick = () => {
+    console.log(Content);
+
+    LessonCreating = new Lesson(0, 
+        lessonNameInput.textContent, lessonTranslatedNameInput.textContent,
+        lessonLanguageLearningInput.textContent, lessonLearningFromLanguageInput.textContent,
+        null
+    );
 }
 
 const addContent = () => {
@@ -25,6 +42,10 @@ const addContent = () => {
     learningInput.placeholder = learningLanguage;
 
     const addButton = document.createElement('button');
+    addButton.addEventListener('click', e => {
+        // Delete Self
+        lessonContentElement.removeChild();
+    });
     addButton.innerText = '+';
 
     const br = document.createElement('br');
@@ -38,6 +59,8 @@ const addContent = () => {
     containerElement.appendChild(addButton)
 
     containerElement.appendChild(br);
+
+    Content.push([containerElement, learningFromInput, learningInput]);
 
     // Add to page
     lessonContentElement.appendChild(containerElement);

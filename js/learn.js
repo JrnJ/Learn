@@ -139,8 +139,22 @@ const OnWindowLoaded = () => {
         }
     });
 
+    if (modeParam != "regular") {
+        console.log(CurrentLesson.content);
+        // Find Mode
+        for (let i = 0; i < CurrentLesson.modes.length; i++) {
+            if (CurrentLesson.modes[i].name == modeParam) {
+                console.log("Mode Found");
+                const mode = CurrentLesson.modes[i];
+                CurrentLesson.content = CurrentLesson.content.slice(mode.rangeStart, mode.rangeEnd);
+                break; 
+            }
+        }
+        console.log(CurrentLesson.content);
+    }
+    
     // Fill Necessarty Data
-    lessonTitle.textContent = exerciseParam;
+    lessonTitle.textContent = exerciseParam + " : " + modeParam;
     document.title = "Lesson | " + exerciseParam;
 
     StartLesson(CurrentLesson.content);

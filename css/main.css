@@ -92,6 +92,7 @@ input:focus {
 .learningCard {
     background-color: #252525;
     height: 100px;
+    width: 200px;
     border-radius: 6px;
     margin-bottom: 6px;
     border: none;
