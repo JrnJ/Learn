@@ -1,0 +1,19 @@
+.radio-toolbar input[type="radio"] {
+    width: 0;
+}
+
+.radio-toolbar label {
+    display: inline-block;
+    background-color: #242424;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.radio-toolbar label:hover {
+    background-color: #292929;
+}
+
+.radio-toolbar input[type="radio"]:checked+label {
+    background-color: #292929;
+}

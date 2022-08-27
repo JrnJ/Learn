@@ -4,35 +4,59 @@
 <head>
     <title>Home</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/navigation.css" />
 </head>
 
 <body>
 
-    <div>
-        <a href="./createlesson.html"><button>+ Create Lesson</button></a>
-    </div>
-    <div id="cardContainer">
-        <!-- <div class="test disabled">
-            <a href="./learn.html?exercise=Katakana">
-                <div class="learningCard">
-                    <span>Katakana</span>
-                    <span>カタカナ</span>
-                    <span style="font-size: 14px; color: #999999; margin-top: -3px;">JP-EN</span>
-                </div>
-            </a>
-        </div>
-        <div class="test disabled">
-            <a href="./learn.html?exercise=Kanji">
-                <div class="learningCard">
-                    <span>Kanji</span>
-                    <span>漢字</span>
-                    <span style="font-size: 14px; color: #999999; margin-top: -3px;">JP-EN</span>
-                </div>
-            </a>
-        </div> -->
-    </div>
+    <!-- Navigation | v1.1 -->
+    <div id="navigation">
+        <div id="navBackground"></div>
 
+        <div id="navContent">
+            <div class="navImageBorder">
+                <a href="https://jeroenj.com/Home"><button class="navImage"></button></a>
+                <div class="navWikiInfo">
+                    <span class="navTitle">Learn!</span>
+                    <br><span class="navTitle">Language learning tool</span>
+                    <br><a href="https://github.com/JrnJ"
+                        style="color: #FF6600; text-decoration: none; font-weight: bold;">By JeroenJ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Navigation | v1.1  -->
+
+    <!-- Body -->
+    <div id="body">
+        <div>
+            <a href="./createlesson.html"><button>+ Create Lesson</button></a>
+        </div><br>
+        
+        <div id="cardContainer">
+            <!-- <div class="test disabled">
+                <a href="./learn.html?exercise=Katakana">
+                    <div class="learningCard">
+                        <span>Katakana</span>
+                        <span>カタカナ</span>
+                        <span style="font-size: 14px; color: #999999; margin-top: -3px;">JP-EN</span>
+                    </div>
+                </a>
+            </div>
+            <div class="test disabled">
+                <a href="./learn.html?exercise=Kanji">
+                    <div class="learningCard">
+                        <span>Kanji</span>
+                        <span>漢字</span>
+                        <span style="font-size: 14px; color: #999999; margin-top: -3px;">JP-EN</span>
+                    </div>
+                </a>
+            </div> -->
+        </div>
+    </div>
+    <!-- Body -->
 
     <script src="./js/lesson.js"></script>
     <script src="./json/AllLessons.js"></script>

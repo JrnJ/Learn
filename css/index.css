@@ -1,0 +1,69 @@
+.unselectable {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    cursor: default;
+}
+
+/* <LearningCard> */
+.test {
+    width: 140px;
+}
+
+.test a {
+    text-decoration: none;
+}
+
+/* <Disabled Card> */
+.disabled .learningCard {
+    background-color: #222222;
+}
+
+.disabled .learningCard span {
+    color: #bdbdbd;
+}
+
+.disabled .learningCard:hover {
+    background-color: #222222;
+    cursor: default;
+    pointer-events: none;
+}
+
+.disabled .learningCard:active {
+    background-color: #222222;
+}
+
+/* </Disabled Card> */
+
+.learningCard {
+    background-color: #252525;
+    height: 100px;
+    width: 200px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    border: none;
+    font-size: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.learningCard:hover {
+    background-color: #272727;
+}
+
+.learningCard:active {
+    background-color: #292929;
+}
+
+.learningCard span {
+    color: white;
+}
+
+/* </LearningCard> */

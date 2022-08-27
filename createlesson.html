@@ -4,50 +4,73 @@
 <head>
     <title>Home</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/createlesson.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/createlesson.css" />
+    <link rel="stylesheet" type="text/css" href="./css/navigation.css" />
 </head>
 
 <body>
 
-    <center>
-        <span>Name:</span><br>
-        <input type="text" id="lessonNameInput"><br><br>
+    <!-- Navigation | v1.1 -->
+    <div id="navigation">
+        <div id="navBackground"></div>
 
-        <span>Translated Name:</span><br>
-        <input type="text" id="lessonTranslatedNameInput"><br><br>
-    
-        <span>Language Learning:</span><br>
-        <input type="text" id="lessonLanguageLearningInput"><br><br>
-    
-        <span>Learning From Language:</span><br>
-        <input type="text" id="lessonLearningFromLanguageInput"><br><br>
-
-        <br>
-        <span>Lesson Content:</span><br>
-        <div id="lessonContentElement">
-            <div>
-                <input type="text" name="english" class="english" placeholder="English">
-                <span>
-                    <input type="text" placeholder="Japanese">
-                </span>
-                <button>+</button>
-                <br>
-            </div>
-            <div>
-                <input type="text" name="english" class="english" placeholder="English">
-                <span>
-                    <input type="text" placeholder="Japanese">
-                </span>
-                <button>+</button>
-                <br>
+        <div id="navContent">
+            <div class="navImageBorder">
+                <a href="./index.html"><button class="navImage"></button></a>
+                <div class="navWikiInfo">
+                    <span class="navTitle">Learn!</span>
+                    <br><span class="navTitle">Language learning tool</span>
+                    <br><a href="https://github.com/JrnJ"
+                        style="color: #FF6600; text-decoration: none; font-weight: bold;">By JeroenJ</a>
+                </div>
             </div>
         </div>
-        <br>
-        <button onclick="addContentClick()">+ Add</button>
-        <button onclick="SaveLessonClick()">Save</button>
-    </center>
-    
+    </div>
+    <!-- /Navigation | v1.1  -->
+
+    <!-- Body -->
+    <div id="body">
+        <center>
+            <span>Name:</span><br>
+            <input type="text" id="lessonNameInput"><br><br>
+
+            <span>Translated Name:</span><br>
+            <input type="text" id="lessonTranslatedNameInput"><br><br>
+
+            <span>Language Learning:</span><br>
+            <input type="text" id="lessonLanguageLearningInput"><br><br>
+
+            <span>Learning From Language:</span><br>
+            <input type="text" id="lessonLearningFromLanguageInput"><br><br>
+
+            <br>
+            <span>Lesson Content:</span><br>
+            <div id="lessonContentElement">
+                <div>
+                    <input type="text" name="english" class="english" placeholder="English">
+                    <span>
+                        <input type="text" placeholder="Japanese">
+                    </span>
+                    <button>+</button>
+                    <br>
+                </div>
+                <div>
+                    <input type="text" name="english" class="english" placeholder="English">
+                    <span>
+                        <input type="text" placeholder="Japanese">
+                    </span>
+                    <button>+</button>
+                    <br>
+                </div>
+            </div>
+            <br>
+            <button onclick="addContentClick()">+ Add</button>
+            <button onclick="SaveLessonClick()">Save</button>
+        </center>
+    </div>
+    <!-- Body -->
+
     <script src="./js/lesson.js"></script>
     <script src="./js/createlesson.js"></script>
 
