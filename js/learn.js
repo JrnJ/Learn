@@ -43,8 +43,6 @@ function StartLesson(questions) {
         numbers.splice(rand, 1);
     }
 
-    console.log(LessonQuestions);
-
     totalQuestions.textContent = LessonLength;
     NextQuestion();
     UpdateScore();
@@ -90,7 +88,6 @@ function CheckAnswer() {
     // Make sure the user can see their mistake
     if (IsPreviousAnswerWrong == false) {
         const answerId = LessonQuestions.shift();
-        console.log(answerId);
 
         // Check if Correct or Wrong
         if (questionAnswer.value.toLowerCase() == CurrentLesson.content[answerId].to.toLowerCase()) {
@@ -127,7 +124,7 @@ function NextQuestion() {
 }
 
 function UpdateScore() {
-    correctQuestionCount.textContent = LessonLength - CurrentLesson.content.length - WrongAnswers.length;
+    correctQuestionCount.textContent = CurrentLesson.content.length - LessonQuestions.length - WrongAnswers.length;
     wrongQuestionCount.textContent = WrongAnswers.length;
 }
 
@@ -140,17 +137,14 @@ const OnWindowLoaded = () => {
     });
 
     if (modeParam != "regular") {
-        console.log(CurrentLesson.content);
         // Find Mode
         for (let i = 0; i < CurrentLesson.modes.length; i++) {
             if (CurrentLesson.modes[i].name == modeParam) {
-                console.log("Mode Found");
                 const mode = CurrentLesson.modes[i];
                 CurrentLesson.content = CurrentLesson.content.slice(mode.rangeStart, mode.rangeEnd);
                 break; 
             }
         }
-        console.log(CurrentLesson.content);
     }
     
     // Fill Necessarty Data
