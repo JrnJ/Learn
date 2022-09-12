@@ -12,6 +12,10 @@
     background-color: #5dfa5d;
 } */
 
+#nextButton {
+    background-color: green;
+}
+
 #canvas {
     border: solid 2px #191919;
 

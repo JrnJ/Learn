@@ -12,6 +12,10 @@ const StartRedoCustomize = () => {
     window.location = './customize.html?exercise=' + exerciseParam;
 }
 
+const HomePage = () => {
+    window.location = './index.html';
+}
+
 const OnWindowLoaded = () => {
     finishedText.textContent = "Finished " + exerciseParam + "!";
 }

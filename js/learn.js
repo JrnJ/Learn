@@ -1,6 +1,7 @@
 const para = new URLSearchParams(window.location.search);
 const exerciseParam = para.get("exercise");
 const modeParam = para.get("mode");
+
 const CurrentLesson = GetLessonByName(exerciseParam);
 
 const lessonTitle = document.getElementById("lessonTitle")
@@ -12,6 +13,8 @@ const questionsLeft = document.getElementById("questionsLeft");
 const correctQuestionCount = document.getElementById("correctQuestionCount");
 const wrongQuestionCount = document.getElementById("wrongQuestionCount");
 const lessonRetries = document.getElementById("lessonRetries");
+
+const nextButton = document.getElementById("nextButton");
 
 let LessonQuestions = []; // int[]
 let LessonLength = 0;
@@ -48,6 +51,50 @@ function StartLesson(questions) {
     UpdateScore();
 }
 
+function CheckAnswer() {
+    // Make sure the user can see their mistake
+    if (IsPreviousAnswerWrong == false) {
+        const answerId = LessonQuestions.shift();
+
+        // Check if Correct or Wrong
+        if (questionAnswer.value.toLowerCase() == CurrentLesson.content[answerId].to.toLowerCase()) {
+            NextQuestion();
+        } else {
+            IsPreviousAnswerWrong = true;
+            WrongAnswers.push(answerId);
+
+            // Show correct stuff
+            question.style.color = "#FF0000";
+            question.textContent += " = " + CurrentLesson.content[answerId].to;
+        }
+
+        // Update UI
+        UpdateScore();
+    } else {
+        IsPreviousAnswerWrong = false;
+        NextQuestion();
+    }
+}
+
+function NextQuestion() {
+    // Check if there are no items left first
+    if (LessonQuestions.length > 0) {
+        question.style.color = "#FFFFFF";
+        questionAnswer.value = "";
+
+        questionsLeft.textContent = CurrentLesson.content.length - LessonQuestions.length;
+        question.textContent = CurrentLesson.content[LessonQuestions[0]].from[0]; // question.textContent = LessonArray[Lesson[0]].hiragana;
+    } else {
+        console.log("finished");
+        LessonFinished();
+    }
+}
+
+function UpdateScore() {
+    correctQuestionCount.textContent = CurrentLesson.content.length - LessonQuestions.length - WrongAnswers.length;
+    wrongQuestionCount.textContent = WrongAnswers.length;
+}
+
 // Lesson is finished, not over, wrong ansers might be present
 function LessonFinished() {
     if (WrongAnswers.length > 0) {
@@ -81,51 +128,11 @@ function LessonOver() {
     // Do something cool ig
     alert("Finished!");
 
+    nextButton.hidden = false;
+}
+
+function NextClick() {
     window.location = './results.html?exercise=' + exerciseParam + '&mode=' + modeParam;
-}
-
-function CheckAnswer() {
-    // Make sure the user can see their mistake
-    if (IsPreviousAnswerWrong == false) {
-        const answerId = LessonQuestions.shift();
-
-        // Check if Correct or Wrong
-        if (questionAnswer.value.toLowerCase() == CurrentLesson.content[answerId].to.toLowerCase()) {
-            NextQuestion();
-        } else {
-            IsPreviousAnswerWrong = true;
-            WrongAnswers.push(answerId);
-
-            // Show correct stuff
-            question.style.color = "#FF0000";
-            question.textContent += " = " + CurrentLesson.content[answerId].to;
-        }
-
-        // Update UI
-        UpdateScore();
-    } else {
-        IsPreviousAnswerWrong = false;
-        NextQuestion();
-    }
-}
-
-function NextQuestion() {
-    // Check if there are no items left first
-    if (LessonQuestions.length > 0) {
-        question.style.color = "#FFFFFF";
-        questionAnswer.value = "";
-
-        questionsLeft.textContent = LessonLength - CurrentLesson.content.length;
-        question.textContent = CurrentLesson.content[LessonQuestions[0]].from[0]; // question.textContent = LessonArray[Lesson[0]].hiragana;
-    } else {
-        console.log("finished");
-        LessonFinished();
-    }
-}
-
-function UpdateScore() {
-    correctQuestionCount.textContent = CurrentLesson.content.length - LessonQuestions.length - WrongAnswers.length;
-    wrongQuestionCount.textContent = WrongAnswers.length;
 }
 
 const OnWindowLoaded = () => {
