@@ -45,28 +45,30 @@
             <input type="text" id="lessonLearningFromLanguageInput"><br><br>
 
             <br>
-            <span>Lesson Content:</span><br>
-            <div id="lessonContentElement">
-                <div>
-                    <input type="text" name="english" class="english" placeholder="English">
-                    <span>
+            <div class="lessonContentBorder">
+                <span>Lesson Content:</span><br>
+                <ul id="lessonContentContainer">
+                    <!-- <li>
+                        <button class="removeItem">X</button>
+    
+                        <input type="text" placeholder="English">
                         <input type="text" placeholder="Japanese">
-                    </span>
-                    <button>+</button>
-                    <br>
-                </div>
-                <div>
-                    <input type="text" name="english" class="english" placeholder="English">
-                    <span>
                         <input type="text" placeholder="Japanese">
-                    </span>
-                    <button>+</button>
-                    <br>
-                </div>
+                        <input type="text" placeholder="Japanese">
+    
+                        <button>+</button>
+                    </li> -->
+                </ul>
+
+                <button onclick="addContentClick()">+ Add Item</button>
             </div>
+            
             <br>
-            <button onclick="addContentClick()">+ Add</button>
             <button onclick="SaveLessonClick()">Save</button>
+
+            <br><br>
+            <span>Output:</span><br>
+            <textarea id="outputText"></textarea>
         </center>
     </div>
     <!-- Body -->
