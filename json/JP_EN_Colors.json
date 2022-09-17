@@ -1,17 +1,1 @@
-{
-    "id": 0,
-    "name": "Colors",
-    "translatedName": "色",
-    "learning": 2,
-    "learningFrom": 0,
-    "content": [
-        {
-            "to": "JapanColors",
-            "from": [
-                "にほん",
-                "ニホン",
-                "日本"
-            ]
-        }
-    ]
-}
+{"id":0,"name":"Colors","translatedName":"色","learning":"2","learningFrom":"0","modes":null,"content":[{"to":"red","from":["あか","",""]},{"to":"orange","from":["おれんじ","",""]},{"to":"yellow","from":["きいろい","",""]},{"to":"green","from":["みどり","",""]},{"to":"blue","from":["あお","",""]},{"to":"light blue","from":["みずいろ","",""]},{"to":"pink","from":["ももいろ","",""]},{"to":"purple","from":["むらさき","",""]},{"to":"brown","from":["ちゃいろ","",""]},{"to":"white","from":["しろ","",""]},{"to":"black","from":["くろい","",""]},{"to":"gray","from":["はいいろ","",""]},{"to":"gold","from":["きんいろ","",""]},{"to":"silver","from":["ぎんいろ","",""]},{"to":"rainbow","from":["にじいろ","",""]}]}

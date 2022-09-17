@@ -1,17 +1,1 @@
-{
-    "id": 0,
-    "name": "Numbers",
-    "translatedName": "数字",
-    "learning": 2,
-    "learningFrom": 0,
-    "content": [
-        {
-            "to": "JapanNumbers",
-            "from": [
-                "にほん",
-                "ニホン",
-                "日本"
-            ]
-        }
-    ]
-}
+{"id":0,"name":"Numbers","translatedName":"数字","learning":"2","learningFrom":"0","modes":null,"content":[{"to":"0","from":["れい","",""]},{"to":"1","from":["いち","",""]},{"to":"2","from":["に","",""]},{"to":"3","from":["さん","",""]},{"to":"4","from":["よん","",""]},{"to":"5","from":["ご","",""]},{"to":"6","from":["ろく","",""]},{"to":"7","from":["なな","",""]},{"to":"8","from":["はち","",""]},{"to":"9","from":["きゅ","",""]},{"to":"10","from":["じょお","",""]}]}

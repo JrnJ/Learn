@@ -68,6 +68,10 @@ function AddMultiAnswerElement(index, first) {
     multiLanguageContainer.appendChild(containerElement);
 }
 
+function ViewLessonClick() {
+    window.location = './lessoncontent.html?exercise=' + exerciseParam;
+}
+
 function LoadFromJSONClick() {
     // Get Element
     const jsonLessonInput = document.getElementById("jsonLessonInput");

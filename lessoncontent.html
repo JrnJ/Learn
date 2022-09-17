@@ -2,7 +2,7 @@
 <html lang="nl">
 
 <head>
-    <title>Create Lesson</title>
+    <title>Show Lesson</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./css/main.css" />
     <link rel="stylesheet" type="text/css" href="./css/createlesson.css" />
@@ -32,64 +32,24 @@
     <!-- Body -->
     <div id="body">
         <center>
-            <div>
-                <span>Load Lesson</span><br>
-                <textarea id="loadLessonText"></textarea><br>
-                <button onclick="LoadLessonClick()">Load</button>
-            </div><br>
-
-            <div>
-                <span>Lesson Name:</span><br>
-                <input type="text" id="lessonNameInput">
-            </div>
-
-            <div>
-                <span>Translated Name:</span><br>
-                <input type="text" id="lessonTranslatedNameInput">
-            </div>
-
-            <div>
-                <span>Language Learning:</span><br>
-                <input type="text" id="lessonLanguageLearningInput">
-            </div>
-
-            <div>
-                <span>Learning From Language:</span><br>
-                <input type="text" id="lessonLearningFromLanguageInput">
-            </div>
-
-
-            <br>
             <div class="lessonContentBorder">
                 <span>Lesson Content:</span><br>
                 <ul id="lessonContentContainer">
                     <!-- <li>
-                        <button class="removeItem">X</button>
-    
                         <input type="text" placeholder="English">
                         <input type="text" placeholder="Japanese">
                         <input type="text" placeholder="Japanese">
                         <input type="text" placeholder="Japanese">
-    
-                        <button>+</button>
                     </li> -->
                 </ul>
-
-                <button onclick="addContentClick()">+ Add Item</button>
             </div>
-
-            <br>
-            <button onclick="SaveLessonClick()">Save</button>
-
-            <br><br>
-            <span>Output:</span><br>
-            <textarea id="outputText"></textarea>
         </center>
     </div>
     <!-- Body -->
 
     <script src="./js/lesson.js"></script>
-    <script src="./js/createlesson.js"></script>
+    <script src="./json/AllLessons.js"></script>
+    <script src="./js/lessoncontent.js"></script>
 
 </body>
 
