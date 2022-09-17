@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <title>Customize</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/learn.css" />
+    <link rel="stylesheet" type="text/css" href="./css/customize.css" />
+    <link rel="stylesheet" type="text/css" href="./css/navigation.css" />
+
+    <script>
+
+    </script>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation | v1.1 -->
+    <div id="navigation">
+        <div id="navBackground"></div>
+
+        <div id="navContent">
+            <div class="navImageBorder">
+                <a href="./index.html"><button class="navImage"></button></a>
+                <div class="navWikiInfo">
+                    <span class="navTitle">Learn!</span>
+                    <br><span class="navTitle">Language learning tool</span>
+                    <br><a href="https://github.com/JrnJ"
+                        style="color: #FF6600; text-decoration: none; font-weight: bold;">By JeroenJ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Navigation | v1.1  -->
+
+    <!-- Body -->
+    <div id="body">
+        <center>
+            <div>
+                <span>Lesson Json</span><br>
+                <textarea id="jsonLessonInput"></textarea><br>
+                <button onclick="LoadFromJSONClick()">Load</button>
+            </div><br>
+
+            <span style="font-size: 32px;">Mode: </span>
+            <div class="radio-toolbar" id="modeContainer">
+                <span>
+                    <input type="radio" name="lessonMode" id="regular" value="regular" checked>
+                    <label for="regular">Regular</label>
+                </span>
+            </div>
+
+            <br>
+            <span style="font-size: 32px;">Multi-language-support: </span>
+            <div class="radio-toolbar" id="multiLanguageContainer">
+
+            </div>
+
+            <br>
+            <span style="font-size: 32px;">Add Lesson: </span>
+            <div>
+
+            </div>
+
+            <br><br>
+            <button onclick="StartWithSettings()">Start</button>
+        </center>
+    </div>
+    <!-- Body -->
+
+    <script src="./json/AllLessons.js"></script>
+    <script src="./js/lesson.js"></script>
+    <script src="./js/customize.js"></script>
+
+</body>
+
+</html>

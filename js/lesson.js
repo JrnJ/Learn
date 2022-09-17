@@ -45,6 +45,7 @@ const LanguageCodes = Object.freeze({
 });
 
 let AllLessons = [];
+let JSON_LESSON = [];
 
 function GetAllLessons() {
     AllLessons.push(JSON.parse(JP_EN_HiraganaFile));
@@ -54,6 +55,7 @@ function GetAllLessons() {
 
 const GetLessonByName = (name) => {
     switch (name) {
+        case "Any": return JSON.parse(JSON_LESSON);
         case "Hiragana": return JSON.parse(JP_EN_HiraganaFile);
         case "Numbers": return JSON.parse(JP_EN_NumbersFile);
         case "Colors": return JSON.parse(JP_EN_ColorsFile);

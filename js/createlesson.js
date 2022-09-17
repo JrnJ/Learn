@@ -5,6 +5,7 @@ const lessonTranslatedNameInput = document.getElementById("lessonTranslatedNameI
 const lessonLanguageLearningInput = document.getElementById("lessonLanguageLearningInput");
 const lessonLearningFromLanguageInput = document.getElementById("lessonLearningFromLanguageInput");
 
+const loadLessonText = document.getElementById("loadLessonText");
 const outputText = document.getElementById("outputText");
 
 // let learningLanguage = "Japanese";
@@ -16,6 +17,25 @@ let Content = [];
 
 function addContentClick() {
     addContent();
+}
+
+function LoadLessonClick() {
+    const json = JSON.parse(loadLessonText.value);
+    console.log(json);
+
+    // Load Lesson Details
+    lessonNameInput.value = json.name;
+    lessonTranslatedNameInput.value = json.translatedName;
+    lessonLanguageLearningInput.value = json.learning;
+    lessonLearningFromLanguageInput.value = json.learningFrom;
+
+    // Load Modes
+
+
+    // Load Content
+    for (let i = 0; i < json.content.length; i++) {
+        addContent(json.content[i]);
+    }
 }
 
 function SaveLessonClick() {
@@ -39,12 +59,22 @@ function SaveLessonClick() {
         translations
     );
 
-    outputText.textContent = JSON.stringify(LessonCreating);
+    outputText.value = JSON.stringify(LessonCreating);
 }
 
-function addContent() {
+function addContent(content) {    
     const li = document.createElement('li');
 
+    let newContent = [];
+
+    if (content != null) {
+        newContent.push(content.to);
+
+        for (let i = 0; i < content.from.length; i++) {
+            newContent.push(content.from[i]);
+        }
+    }
+    
     const deleteButton = document.createElement('button');
     deleteButton.addEventListener('click', e => {
         
@@ -68,6 +98,9 @@ function addContent() {
         const learningInput = document.createElement('input');
         learningInput.type = "text";
         learningInput.placeholder = "placeholder hi";
+        if (content != null) {
+            learningInput.value = newContent[i];
+        }
         li.appendChild(learningInput);
     }
 

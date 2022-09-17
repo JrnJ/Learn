@@ -32,17 +32,32 @@
     <!-- Body -->
     <div id="body">
         <center>
-            <span>Lesson Name:</span><br>
-            <input type="text" id="lessonNameInput"><br><br>
+            <div>
+                <span>Load Lesson</span><br>
+                <textarea id="loadLessonText"></textarea><br>
+                <button onclick="LoadLessonClick()">Load</button>
+            </div><br>
 
-            <span>Translated Name:</span><br>
-            <input type="text" id="lessonTranslatedNameInput"><br><br>
+            <div>
+                <span>Lesson Name:</span><br>
+                <input type="text" id="lessonNameInput">
+            </div>
 
-            <span>Language Learning:</span><br>
-            <input type="text" id="lessonLanguageLearningInput"><br><br>
+            <div>
+                <span>Translated Name:</span><br>
+                <input type="text" id="lessonTranslatedNameInput">
+            </div>
 
-            <span>Learning From Language:</span><br>
-            <input type="text" id="lessonLearningFromLanguageInput"><br><br>
+            <div>
+                <span>Language Learning:</span><br>
+                <input type="text" id="lessonLanguageLearningInput">
+            </div>
+
+            <div>
+                <span>Learning From Language:</span><br>
+                <input type="text" id="lessonLearningFromLanguageInput">
+            </div>
+
 
             <br>
             <div class="lessonContentBorder">
@@ -62,7 +77,7 @@
 
                 <button onclick="addContentClick()">+ Add Item</button>
             </div>
-            
+
             <br>
             <button onclick="SaveLessonClick()">Save</button>
 

@@ -4,7 +4,7 @@ const exerciseParam = para.get("exercise");
 const modeContainer = document.getElementById("modeContainer");
 const multiLanguageContainer = document.getElementById("multiLanguageContainer");
 
-const LessonCustomizing = GetLessonByName(exerciseParam);
+let LessonCustomizing;
 
 const StartWithSettings = () => {
     const modeValue = document.querySelector('input[name="lessonMode"]:checked').value;
@@ -68,9 +68,30 @@ function AddMultiAnswerElement(index, first) {
     multiLanguageContainer.appendChild(containerElement);
 }
 
+function LoadFromJSONClick() {
+    // Get Element
+    const jsonLessonInput = document.getElementById("jsonLessonInput");
+
+    // Set JSON_LESSON
+    JSON_LESSON = jsonLessonInput.value;
+    LessonCustomizing = GetLessonByName(exerciseParam);
+    console.log(LessonCustomizing);
+    
+    // TODO: LocalStorage for this I guess
+    // https://stackoverflow.com/questions/53904944/how-to-keep-a-js-variable-the-same-even-after-refreshing-page
+}
+
 function OnWindowLoaded() {
-    AddModes();
-    AddMultiAnswerOptions();
+
+    if (exerciseParam != "Any") {
+        const tempLesson = GetLessonByName(exerciseParam);
+
+        if (tempLesson != null) {
+            LessonCustomizing = tempLesson;
+            AddModes();
+            AddMultiAnswerOptions();
+        }
+    }
 }
 
 window.onload = OnWindowLoaded();
