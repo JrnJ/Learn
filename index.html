@@ -4,9 +4,15 @@
 <head>
     <title>Home</title>
     <meta charset="UTF-8">
+
+    <!-- Likely not up to date -->
+    <!-- Copied from Primary styling -->
     <link rel="stylesheet" type="text/css" href="./css/main.css" />
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
     <link rel="stylesheet" type="text/css" href="./css/navigation.css" />
+
+    <!-- Primary styling -->
+    <link rel="stylesheet" type="text/css" href="./../css/main.css" />
 </head>
 
 <body>
@@ -22,7 +28,7 @@
                     <span class="navTitle">Learn!</span>
                     <br><span class="navTitle">Language learning tool</span>
                     <br><a href="https://github.com/JrnJ"
-                        style="color: #FF6600; text-decoration: none; font-weight: bold;">By JeroenJ</a>
+                        style="color: #ffd9d9; text-decoration: none; font-weight: bold;">By JeroenJ</a>
                 </div>
             </div>
         </div>
@@ -35,25 +41,16 @@
             <a href="./createlesson.html"><button>+ Create Lesson</button></a>
         </div><br>
         
-        <div id="cardContainer">
-            <div class="test">
+        <ul id="lessonCardContainer">
+            <li>
                 <a href="./fromjson.html?exercise=Any">
-                    <div class="learningCard">
+                    <button class="lessonCard">
                         <span>From JSON</span>
-                        <span style="font-size: 14px; color: #999999; margin-top: -3px;">Any-Any</span>
-                    </div>
+                        <span class="grey">Any-Any</span>
+                    </button>
                 </a>
-            </div>
-            <!-- <div class="test disabled">
-                <a href="./learn.html?exercise=Kanji">
-                    <div class="learningCard">
-                        <span>Kanji</span>
-                        <span>漢字</span>
-                        <span style="font-size: 14px; color: #999999; margin-top: -3px;">JP-EN</span>
-                    </div>
-                </a>
-            </div> -->
-        </div>
+            </li>
+        </ul>
     </div>
     <!-- Body -->
 

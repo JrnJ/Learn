@@ -1,4 +1,4 @@
-const cardContainer = document.getElementById("cardContainer");
+const lessonCardContainer = document.getElementById('lessonCardContainer');
 
 function OnWindowLoad() {
     GetAllLessons();
@@ -11,16 +11,15 @@ function OnWindowLoad() {
 
 const addLessonCardToContainer = (lesson) => {
     // Create Element
-    const containerElement = document.createElement('div');
-    containerElement.classList = ['test'];
+    const card = document.createElement('li');
 
-    // Create Content
+    // Create Card Link
     const cardLink = document.createElement('a');
     cardLink.href = "./customize.html?exercise=" + lesson.name;
 
-    // Content Container
-    const cardContentContainer = document.createElement('div');
-    cardContentContainer.classList = ['learningCard'];
+    // Create Button
+    const button = document.createElement('button');
+    button.classList = ['lessonCard'];
 
     const lessonNameText = document.createElement('span');
     lessonNameText.textContent = lesson.name;
@@ -30,21 +29,19 @@ const addLessonCardToContainer = (lesson) => {
 
     const lessonLanguageText = document.createElement('span');
     lessonLanguageText.textContent = Object.keys(LanguageCodes)[lesson.learning] + '-' + Object.keys(LanguageCodes)[lesson.learningFrom];
-    lessonLanguageText.style.fontSize = "14px";
-    lessonLanguageText.style.color = "#999999";
-    lessonLanguageText.style.marginTop = "-3px";
+    lessonLanguageText.classList = ['grey'];
 
     // Build Element
-    cardContentContainer.appendChild(lessonNameText);
-    cardContentContainer.appendChild(lessonTranslatedNameText);
-    cardContentContainer.appendChild(lessonLanguageText);
+    button.appendChild(lessonNameText);
+    button.appendChild(lessonTranslatedNameText);
+    button.appendChild(lessonLanguageText);
 
-    cardLink.appendChild(cardContentContainer);
+    cardLink.appendChild(button);
 
-    containerElement.appendChild(cardLink);
+    card.appendChild(cardLink);
 
     // Add to Screen
-    cardContainer.appendChild(containerElement);
+    lessonCardContainer.appendChild(card);
 }
 
 window.onload = OnWindowLoad();

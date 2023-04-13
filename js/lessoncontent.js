@@ -20,11 +20,11 @@ function addContent(content) {
 
     // Build Element
     for (let i = 0; i < 4; i++) {
-        const learningInput = document.createElement('input');
-        learningInput.type = "text";
-        learningInput.placeholder = "placeholder hi";
+        const learningInput = document.createElement('span');
+        // learningInput.type = "text";
+        // learningInput.placeholder = "placeholder hi";
         if (content != null) {
-            learningInput.value = newContent[i];
+            learningInput.innerText = newContent[i];
         }
         li.appendChild(learningInput);
     }

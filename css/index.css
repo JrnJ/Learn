@@ -9,7 +9,31 @@
     cursor: default;
 }
 
-/* <LearningCard> */
+/* <LessonCard> */
+#lessonCardContainer li {
+    margin-bottom: 0.5rem;
+}
+
+.lessonCard {
+    width: 200px;
+    height: 100px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.lessonCard span {
+    display: block;
+    font-size: 1rem;
+}
+
+.lessonCard .grey {
+    font-size: 0.85rem; 
+    color: #999999; 
+    margin-top: -0.1rem;
+}
+/* </LessonCard> */
+
+/*
 .test {
     width: 140px;
 }
@@ -17,8 +41,9 @@
 .test a {
     text-decoration: none;
 }
-
+*/
 /* <Disabled Card> */
+/*
 .disabled .learningCard {
     background-color: #222222;
 }
@@ -36,11 +61,11 @@
 .disabled .learningCard:active {
     background-color: #222222;
 }
-
+*/
 /* </Disabled Card> */
-
+/*
 .learningCard {
-    background-color: #252525;
+    background-color: #161616;
     height: 100px;
     width: 200px;
     border-radius: 6px;
@@ -55,15 +80,15 @@
 }
 
 .learningCard:hover {
-    background-color: #272727;
+    background-color: #181818;
 }
 
 .learningCard:active {
-    background-color: #292929;
+    background-color: #202020;
 }
 
 .learningCard span {
     color: white;
 }
-
+*/
 /* </LearningCard> */
