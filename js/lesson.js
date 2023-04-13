@@ -49,6 +49,7 @@ let JSON_LESSON = [];
 
 function GetAllLessons() {
     AllLessons.push(JSON.parse(JP_EN_HiraganaFile));
+    AllLessons.push(JSON.parse(JP_EN_HiraganaCombination));
     AllLessons.push(JSON.parse(JP_EN_NumbersFile));
     AllLessons.push(JSON.parse(JP_EN_ColorsFile));
 }
@@ -57,6 +58,7 @@ const GetLessonByName = (name) => {
     switch (name) {
         case "Any": return JSON.parse(JSON_LESSON);
         case "Hiragana": return JSON.parse(JP_EN_HiraganaFile);
+        case "Hiragana Combination": return JSON.parse(JP_EN_HiraganaCombination);
         case "Numbers": return JSON.parse(JP_EN_NumbersFile);
         case "Colors": return JSON.parse(JP_EN_ColorsFile);
     }
