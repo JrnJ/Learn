@@ -13,7 +13,7 @@ class Lesson {
 class Translation {
     constructor(to, from) {
         this.to = to; // String
-        this.from = from; // String
+        this.from = from; // Array of String
     }
 };
 
@@ -52,6 +52,7 @@ function GetAllLessons() {
     AllLessons.push(JSON.parse(JP_EN_HiraganaCombination));
     AllLessons.push(JSON.parse(JP_EN_NumbersFile));
     AllLessons.push(JSON.parse(JP_EN_ColorsFile));
+    AllLessons.push(JSON.parse(JP_EN_EverydayObjects));
 }
 
 const GetLessonByName = (name) => {
@@ -61,5 +62,6 @@ const GetLessonByName = (name) => {
         case "Hiragana Combination": return JSON.parse(JP_EN_HiraganaCombination);
         case "Numbers": return JSON.parse(JP_EN_NumbersFile);
         case "Colors": return JSON.parse(JP_EN_ColorsFile);
+        case "Everyday Objects": return JSON.parse(JP_EN_EverydayObjects);
     }
 }

@@ -5,6 +5,10 @@
     <title>Learn</title>
     <meta charset="UTF-8">
     
+    <!-- Mobile -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" type="text/css" href="./css/learn.css" />
 
     <!-- Likely not up to date -->
@@ -18,8 +22,47 @@
 
 <body>
 
+    <header>
+        <!-- Bar -->
+        <div class="flex-horizontal">
+            <div class="progress-bar">
+                <div id="questions-progress-bar-inner" class="progress-bar-inner"></div>
+            </div>
+            <p id="questionsLeft">10</p>
+        </div>
+
+        <!-- Icons -->
+        <div class="progress-icon-wrapper">
+            <div class="flex-horizontal">
+                <div class="circle circle-green"></div>
+                <p id="correctQuestionCount">26</p>
+            </div>
+            <div class="flex-horizontal">
+                <div class="circle circle-red"></div>
+                <p id="wrongQuestionCount">10</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <span id="lessonTitle"></span>
+
+        <span id="question" class="unselectable" style="font-size: 24px;"></span>
+
+        <input id="questionAnswer" type="text">
+
+        <button class="submitAnswer" onclick="CheckAnswer()">Check</button>
+        <div id="lessonRetries"></div><br>
+        <button id="nextButton" onclick="NextClick()" hidden>Next</button>
+    </main>
+
+    <nav>
+        <button>Back</button>
+        <button>Home</button>
+    </nav>
+
     <!-- Navigation | v1.1 -->
-    <div id="navigation">
+    <!-- <div id="navigation">
         <div id="navBackground"></div>
 
         <div id="navContent">
@@ -33,29 +76,46 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /Navigation | v1.1  -->
 
     <!-- Body -->
-    <div id="body">
+    <!-- <div id="body">
         <center>
             <br>
             <span id="lessonTitle"></span><br><br>
+            <div class="progress"> -->
+                <!-- Bar -->
+                <!-- <div class="flex-horizontal">
+                    <div class="progress-bar">
+                        <div id="questions-progress-bar-inner" class="progress-bar-inner"></div>
+                    </div>
+                    <p id="questionsLeft">10</p>
+                </div> -->
+
+                <!-- Icons -->
+                <!-- <div class="flex-horizontal">
+                    <div class="circle circle-green"></div>
+                    <p id="correctQuestionCount">26</p>
+                </div>
+                <div class="flex-horizontal">
+                    <div class="circle circle-red"></div>
+                    <p id="wrongQuestionCount">10</p>
+                </div>
+            </div>
+
+            <br>
             <span id="question" class="unselectable" style="font-size: 24px;"></span><br>
 
             <input id="questionAnswer" type="text"><br><br>
 
             <button class="submitAnswer" onclick="CheckAnswer()">Check</button><br><br>
-            <span id="questionsLeft">0</span> / <span id="totalQuestions">0</span><br>
-            <span id="correctQuestionCount" style="color: green;">0</span> / <span id="wrongQuestionCount"
-                style="color: red">0</span>
             <div id="lessonRetries">
-            </div>
-
+            </div>            
             <br>
             <button id="nextButton" onclick="NextClick()" hidden>Next</button>
         </center>
-    </div>
+    </div> -->
     <!-- /Body -->
 
     <script src="./js/lesson.js"></script>
