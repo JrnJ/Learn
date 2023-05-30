@@ -1,5 +1,6 @@
 #questionAnswer {
     height: 26px;
+    width: 80%;
     font-size: 18px;
     text-align: center;
 }
@@ -8,9 +9,10 @@
     font-size: 24px;
 }
 
-/* .submitAnswer {
-    background-color: #5dfa5d;
-} */
+.submitAnswer {
+    /* background-color: #29B966; */
+    width: 100%;
+}
 
 #nextButton {
     background-color: green;
@@ -93,7 +95,7 @@ main {
 
     display: flex;
 
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center; 
     margin: 1rem;
 
