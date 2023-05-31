@@ -70,7 +70,7 @@
 body {
     display: grid;
     grid-template-columns:  auto;               /* Width */
-    grid-template-rows:     100px auto 100px;   /* Height */
+    grid-template-rows:     4rem auto 4rem;   /* Height */
     grid-template-areas: 
         "header"
         "main"
@@ -107,6 +107,6 @@ nav {
 
     display: flex;
 
-    background-color: #090909;
+    border-top: solid 1.5px #404040;
     /* Implement ListItem based navbar like in musicplayer app*/
 }
