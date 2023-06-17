@@ -53,6 +53,7 @@ function GetAllLessons() {
     AllLessons.push(JSON.parse(JP_EN_NumbersFile));
     AllLessons.push(JSON.parse(JP_EN_ColorsFile));
     AllLessons.push(JSON.parse(JP_EN_EverydayObjects));
+    AllLessons.push(JSON.parse(ITSMH4));
 }
 
 const GetLessonByName = (name) => {
@@ -63,5 +64,6 @@ const GetLessonByName = (name) => {
         case "Numbers": return JSON.parse(JP_EN_NumbersFile);
         case "Colors": return JSON.parse(JP_EN_ColorsFile);
         case "Everyday Objects": return JSON.parse(JP_EN_EverydayObjects);
+        case "ITSM H4": return JSON.parse(ITSMH4);
     }
 }

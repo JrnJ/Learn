@@ -1,6 +1,7 @@
 const para = new URLSearchParams(window.location.search);
 const exerciseParam = para.get("exercise");
 const modeParam = para.get("mode");
+const shuffleParam = para.get("shuffle");
 
 const CurrentLesson = GetLessonByName(exerciseParam);
 
@@ -23,6 +24,9 @@ let LessonLength = 0;
 let WrongAnswers = []; // int[]
 let IsPreviousAnswerWrong = false;
 
+// TODO add this to the JSON of a lesson OR to the customization of a lesson
+const makeLessonRandom = shuffleParam;
+
 function StartLesson(questions) {
     // Set Defaults
     LessonLength = questions.length;
@@ -39,13 +43,17 @@ function StartLesson(questions) {
     }
 
     // Fill Lesson
-    for (let i = questions.length; i > 0; i--) {
-        // Random
-        let rand = Math.floor(numbers.length / 1 * Math.random());
-
-        // Add 
-        LessonQuestions.push(numbers[rand]);
-        numbers.splice(rand, 1);
+    if (makeLessonRandom == "true") {
+        for (let i = questions.length; i > 0; i--) {
+            // Random
+            let rand = Math.floor(numbers.length / 1 * Math.random());
+    
+            // Add 
+            LessonQuestions.push(numbers[rand]);
+            numbers.splice(rand, 1);
+        }
+    } else {
+        LessonQuestions = numbers;
     }
 
     // totalQuestions.textContent = LessonLength;
@@ -136,7 +144,7 @@ function LessonOver() {
 }
 
 function NextClick() {
-    window.location = './results.html?exercise=' + exerciseParam + '&mode=' + modeParam;
+    window.location = './results.html?exercise=' + exerciseParam + '&mode=' + modeParam + '&shuffle=' + shuffleParam;
 }
 
 const OnWindowLoaded = () => {
