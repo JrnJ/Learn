@@ -74,7 +74,7 @@ function CheckAnswer() {
             WrongAnswers.push(answerId);
 
             // Show correct stuff
-            question.style.color = "#FF0000";
+            question.style.color = "#ffd6d6";
             question.textContent += " = " + CurrentLesson.content[answerId].to;
         }
 
