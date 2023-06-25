@@ -28,7 +28,7 @@
             <div class="progress-bar">
                 <div id="questions-progress-bar-inner" class="progress-bar-inner"></div>
             </div>
-            <p id="questionsLeft">10</p>
+            <p id="questionsLeft"></p>
         </div>
 
         <!-- Icons -->
@@ -49,9 +49,20 @@
 
         <span id="question" class="unselectable" style="font-size: 24px;"></span>
 
-        <input id="questionAnswer" type="text"><br>
-        
-        <button class="submitAnswer" onclick="CheckAnswer()">Check</button>
+        <div id="answerModeText" style="visibility: collapse; width: 75%">
+            <input id="questionAnswer" type="text"><br>
+            <button class="submitAnswer" onclick="CheckAnswer()">Check</button>
+        </div>
+
+        <div id="answerModeButton" style="visibility: collapse;">
+            <button class="submitAnswer" onclick="RevealAnswer()">Check</button>
+
+            <div style="display: flex;">
+                <button class="submitAnswer" onclick="Meow(true)" style="margin-right: 5px;">Correct</button>
+                <button class="submitAnswer" onclick="Meow(false)" style="margin-left: 5px;">Wrong</button>
+            </div>
+        </div>
+
         <div id="lessonRetries"></div><br>
         <button id="nextButton" onclick="NextClick()" hidden>Next</button>
     </main>

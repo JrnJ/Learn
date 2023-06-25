@@ -2,10 +2,14 @@ const para = new URLSearchParams(window.location.search);
 const exerciseParam = para.get("exercise");
 const modeParam = para.get("mode");
 const shuffleParam = para.get("shuffle");
+const answerMode = para.get("answerMode");
 
 const CurrentLesson = GetLessonByName(exerciseParam);
 
-const lessonTitle = document.getElementById("lessonTitle")
+const answerModeText = document.getElementById("answerModeText");
+const answerModeButton = document.getElementById("answerModeButton");
+
+const lessonTitle = document.getElementById("lessonTitle");
 const question = document.getElementById("question");
 const questionAnswer = document.getElementById("questionAnswer");
 
@@ -23,6 +27,7 @@ let LessonQuestions = []; // int[]
 let LessonLength = 0;
 let WrongAnswers = []; // int[]
 let IsPreviousAnswerWrong = false;
+let OverrideIsAnswerWrong = false;
 
 // TODO add this to the JSON of a lesson OR to the customization of a lesson
 const makeLessonRandom = shuffleParam;
@@ -61,29 +66,53 @@ function StartLesson(questions) {
     UpdateScore();
 }
 
+function RevealAnswer(param) {
+    if (param == 'answerWrong') {
+        question.style.color = "#ffd6d6";
+    } else {
+        question.style.color = "#ffffff";
+        OverrideIsAnswerWrong = true;
+    }
+    
+    question.textContent += " = " + CurrentLesson.content[LessonQuestions[0]].to;
+}
+
 function CheckAnswer() {
     // Make sure the user can see their mistake
     if (IsPreviousAnswerWrong == false) {
-        const answerId = LessonQuestions.shift();
-
         // Check if Correct or Wrong
-        if (questionAnswer.value.toLowerCase() == CurrentLesson.content[answerId].to.toLowerCase()) {
-            NextQuestion();
-        } else {
-            IsPreviousAnswerWrong = true;
-            WrongAnswers.push(answerId);
-
-            // Show correct stuff
-            question.style.color = "#ffd6d6";
-            question.textContent += " = " + CurrentLesson.content[answerId].to;
-        }
-
-        // Update UI
-        UpdateScore();
+        Meow(questionAnswer.value.toLowerCase() == CurrentLesson.content[LessonQuestions[0]].to.toLowerCase());
     } else {
         IsPreviousAnswerWrong = false;
         NextQuestion();
     }
+}
+
+// TODO rename this method
+// TODO fix this code, primarily remove the OverrideIsAnswerWrong
+function Meow(correct) {
+    if (correct == true) {
+        LessonQuestions.shift();
+        NextQuestion();
+    } else if (correct == false) {
+        if (OverrideIsAnswerWrong == true) {
+            WrongAnswers.push(LessonQuestions.shift());
+            NextQuestion();
+        } else {
+            IsPreviousAnswerWrong = true;
+
+            // Show correct stuff
+            RevealAnswer('anserWrong');
+
+            WrongAnswers.push(LessonQuestions.shift());
+        }
+    } else {
+        // Do Nothing
+        console.log("Invalid input!");
+    }
+
+    // Update UI
+    UpdateScore();
 }
 
 function NextQuestion() {
@@ -144,7 +173,7 @@ function LessonOver() {
 }
 
 function NextClick() {
-    window.location = './results.html?exercise=' + exerciseParam + '&mode=' + modeParam + '&shuffle=' + shuffleParam;
+    window.location = './results.html?exercise=' + exerciseParam + '&mode=' + modeParam + '&shuffle=' + shuffleParam + "&answerMode=" + answerMode;
 }
 
 const OnWindowLoaded = () => {
@@ -164,6 +193,15 @@ const OnWindowLoaded = () => {
                 break; 
             }
         }
+    }
+
+    if (answerMode == "answerModeText") {
+        answerModeText.style.visibility = "visible";
+    } else if (answerMode == "answerModeButton") {
+        answerModeButton.style.visibility = "visible";
+    } else {
+        // Uhhh
+        answerModeText.style.visibility = "visible";
     }
     
     // Fill Necessarty Data
@@ -237,43 +275,3 @@ function hiraganaToRomaji(hiragana) {
 }
 
 window.onload = OnWindowLoaded();
-
-let isDrawing = false;
-let x = 0;
-let y = 0;
-
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-
-canvas.addEventListener('mousedown', (e) => {
-    x = e.offsetX;
-    y = e.offsetY;
-    isDrawing = true;
-});
-
-canvas.addEventListener('mousemove', (e) => {
-    if (isDrawing) {
-        drawLine(ctx, x, y, e.offsetX, e.offsetY);
-        x = e.offsetX;
-        y = e.offsetY;
-    }
-});
-
-window.addEventListener('mouseup', (e) => {
-    if (isDrawing) {
-        drawLine(ctx, x, y, e.offsetX, e.offsetY);
-        x = 0;
-        y = 0;
-        isDrawing = false;
-    }
-});
-
-function drawLine(context, x1, y1, x2, y2) {
-    context.beginPath();
-    context.strokeStyle = 'white';
-    context.lineWidth = 3;
-    context.moveTo(x1, y1);
-    context.lineTo(x2, y2);
-    context.stroke();
-    context.closePath();
-}

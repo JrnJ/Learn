@@ -9,7 +9,12 @@ let LessonCustomizing;
 const StartWithSettings = () => {
     const modeValue = document.querySelector('input[name="lessonMode"]:checked').value;
     const shuffleValue = document.querySelector('#shuffleLesson').checked;
-    window.location = './learn.html?exercise=' + exerciseParam + '&mode=' + modeValue + '&shuffle=' + shuffleValue;
+    const answerModeValue = document.querySelector('input[name="answerMode"]:checked').value;
+
+    window.location = './learn.html?exercise=' + exerciseParam + 
+        '&mode=' + modeValue + 
+        '&shuffle=' + shuffleValue + 
+        '&answerMode=' + answerModeValue;
 }
 
 function AddModes() {
