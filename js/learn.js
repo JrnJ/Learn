@@ -79,7 +79,7 @@ function RevealAnswer(param) {
 
 function CheckAnswer() {
     // Make sure the user can see their mistake
-    if (IsPreviousAnswerWrong == false) {
+    if (!IsPreviousAnswerWrong) {
         // Check if Correct or Wrong
         Meow(questionAnswer.value.toLowerCase() == CurrentLesson.content[LessonQuestions[0]].to.toLowerCase());
     } else {
@@ -91,18 +91,18 @@ function CheckAnswer() {
 // TODO rename this method
 // TODO fix this code, primarily remove the OverrideIsAnswerWrong
 function Meow(correct) {
-    if (correct == true) {
+    if (correct) {
         LessonQuestions.shift();
         NextQuestion();
-    } else if (correct == false) {
-        if (OverrideIsAnswerWrong == true) {
+    } else if (!correct) {
+        if (OverrideIsAnswerWrong) {
             WrongAnswers.push(LessonQuestions.shift());
             NextQuestion();
         } else {
             IsPreviousAnswerWrong = true;
 
             // Show correct stuff
-            RevealAnswer('anserWrong');
+            RevealAnswer('answerWrong');
 
             WrongAnswers.push(LessonQuestions.shift());
         }

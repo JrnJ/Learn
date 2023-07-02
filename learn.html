@@ -13,7 +13,7 @@
 
     <!-- Likely not up to date -->
     <!-- Copied from Primary styling -->
-    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./css/main.css" /> -->
     <link rel="stylesheet" type="text/css" href="./css/navigation.css" />
 
     <!-- Primary styling -->
@@ -23,6 +23,13 @@
 <body>
 
     <header>
+        <!-- Back -->
+        <div>
+            <a href="./index.html">
+                <img src="icons/arrow-left.svg">
+            </a>
+        </div>
+
         <!-- Bar -->
         <div class="flex-horizontal">
             <div class="progress-bar">
@@ -34,22 +41,26 @@
         <!-- Icons -->
         <div class="progress-icon-wrapper">
             <div class="flex-horizontal">
-                <div class="circle circle-green"></div>
+                <div class="circle circle-green">
+                    <img src="icons/check.svg">
+                </div>
                 <p id="correctQuestionCount">0</p>
             </div>
             <div class="flex-horizontal">
-                <div class="circle circle-red"></div>
+                <div class="circle circle-red">
+                    <img src="icons/x.svg">
+                </div>
                 <p id="wrongQuestionCount">0</p>
             </div>
         </div>
     </header>
 
     <main>
-        <span id="lessonTitle"></span>
+        <h3 id="lessonTitle"></h3>
 
         <span id="question" class="unselectable" style="font-size: 24px;"></span>
 
-        <div id="answerModeText" style="visibility: collapse; width: 75%">
+        <div id="answerModeText" style="visibility: collapse; width: 100%;">
             <input id="questionAnswer" type="text"><br>
             <button class="submitAnswer" onclick="CheckAnswer()">Check</button>
         </div>
