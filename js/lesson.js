@@ -53,9 +53,9 @@ function GetAllLessons() {
     AllLessons.push(JSON.parse(JP_EN_NumbersFile));
     AllLessons.push(JSON.parse(JP_EN_ColorsFile));
     AllLessons.push(JSON.parse(JP_EN_EverydayObjects));
-    // AllLessons.push(JSON.parse(ITIL_GEN));
-    // AllLessons.push(JSON.parse(ITIL_DOEL));
-    // AllLessons.push(JSON.parse(ITIL_ALL));
+    AllLessons.push(JSON.parse(ITIL_GEN));
+    AllLessons.push(JSON.parse(ITIL_DOEL));
+    AllLessons.push(JSON.parse(ITIL_ALL));
 }
 
 const GetLessonByName = (name) => {
@@ -66,8 +66,8 @@ const GetLessonByName = (name) => {
         case "Numbers": return JSON.parse(JP_EN_NumbersFile);
         case "Colors": return JSON.parse(JP_EN_ColorsFile);
         case "Everyday Objects": return JSON.parse(JP_EN_EverydayObjects);
-        // case "ITIL_GEN": return JSON.parse(ITIL_GEN);
-        // case "ITIL_DOEL": return JSON.parse(ITIL_DOEL);
-        // case "ITIL_ALL": return JSON.parse(ITIL_ALL);
+        case "ITIL_GEN": return JSON.parse(ITIL_GEN);
+        case "ITIL_DOEL": return JSON.parse(ITIL_DOEL);
+        case "ITIL_ALL": return JSON.parse(ITIL_ALL);
     }
 }
