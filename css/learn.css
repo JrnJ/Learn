@@ -82,6 +82,20 @@
     background-color: #2dc25a;
 }
 
+#submitAnswerCorrect:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+#submitAnswerWrong {
+    background-color: red;
+}
+
+#submitAnswerWrong:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
 /* NEW */
 body {
     display: grid;

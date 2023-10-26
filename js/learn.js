@@ -20,6 +20,10 @@ const lessonRetries = document.getElementById("lessonRetries");
 
 const nextButton = document.getElementById("nextButton");
 
+// Buttons
+const submitAnswerCorrect = document.getElementById("submitAnswerCorrect");
+const submitAnswerWrong = document.getElementById("submitAnswerWrong");
+
 // Progress Bar
 const progressBarInner = document.getElementById("questions-progress-bar-inner");
 
@@ -75,6 +79,9 @@ function RevealAnswer(param) {
     }
     
     question.textContent += " = " + CurrentLesson.content[LessonQuestions[0]].to;
+
+    submitAnswerCorrect.disabled = false;
+    submitAnswerWrong.disabled = false;
 }
 
 function CheckAnswer() {
@@ -125,6 +132,9 @@ function NextQuestion() {
         progressBarInner.style.width = (Math.floor((100.0 / LessonLength * (LessonLength - LessonQuestions.length))) + "%");
 
         question.textContent = CurrentLesson.content[LessonQuestions[0]].from[0]; // question.textContent = LessonArray[Lesson[0]].hiragana;
+        
+        submitAnswerCorrect.disabled = true;
+        submitAnswerWrong.disabled = true;
     } else {
         console.log("finished");
         LessonFinished();

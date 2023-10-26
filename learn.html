@@ -13,7 +13,7 @@
 
     <!-- Likely not up to date -->
     <!-- Copied from Primary styling -->
-    <!-- <link rel="stylesheet" type="text/css" href="./css/main.css" /> -->
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
     <link rel="stylesheet" type="text/css" href="./css/navigation.css" />
 
     <!-- Primary styling -->
@@ -69,8 +69,8 @@
             <button class="submitAnswer" onclick="RevealAnswer()">Check</button>
 
             <div style="display: flex;">
-                <button class="submitAnswer" onclick="Meow(true)" style="margin-right: 5px;">Correct</button>
-                <button class="submitAnswer" onclick="Meow(false)" style="margin-left: 5px;">Wrong</button>
+                <button id="submitAnswerCorrect" disabled class="submitAnswer" onclick="Meow(true)" style="margin-right: 5px;">Correct</button>
+                <button id="submitAnswerWrong" disabled onclick="Meow(false)" style="margin-left: 5px;">Wrong</button>
             </div>
         </div>
 
