@@ -59,6 +59,7 @@ function GetAllLessons() {
     AllLessons.push(JSON.parse(DATABASES3));
     AllLessons.push(JSON.parse(ALGD));
     AllLessons.push(JSON.parse(ITIL_H4));
+    AllLessons.push(JSON.parse(SECURITY));
 }
 
 const GetLessonByName = (name) => {
@@ -75,5 +76,6 @@ const GetLessonByName = (name) => {
         case "Databases 3": return JSON.parse(DATABASES3);
         case "ALGD": return JSON.parse(ALGD);
         case "ITIL-H4": return JSON.parse(ITIL_H4);
+        case "SECURITY": return JSON.parse(SECURITY);
     }
 }
