@@ -60,6 +60,7 @@ function GetAllLessons() {
     AllLessons.push(JSON.parse(SECURITY));
     AllLessons.push(JSON.parse(SEC_ALGORTIME));
     AllLessons.push(JSON.parse(NET_BEGRIPPEN));
+    AllLessons.push(JSON.parse(NET_BOEK));
 }
 
 const GetLessonByName = (name) => {
@@ -77,5 +78,6 @@ const GetLessonByName = (name) => {
         case "SECURITY": return JSON.parse(SECURITY);
         case "SEC | Algoritme": return JSON.parse(SEC_ALGORTIME);
         case "Netwerken | Begrippen": return JSON.parse(NET_BEGRIPPEN);
+        case "Netwerken | Boek": return JSON.parse(NET_BOEK);
     }
 }
