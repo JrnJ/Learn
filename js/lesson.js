@@ -59,6 +59,7 @@ function GetAllLessons() {
     AllLessons.push(JSON.parse(ITIL_H4));
     AllLessons.push(JSON.parse(SECURITY));
     AllLessons.push(JSON.parse(SEC_ALGORTIME));
+    AllLessons.push(JSON.parse(NET_BEGRIPPEN));
 }
 
 const GetLessonByName = (name) => {
@@ -75,5 +76,6 @@ const GetLessonByName = (name) => {
         case "ITIL-H4": return JSON.parse(ITIL_H4);
         case "SECURITY": return JSON.parse(SECURITY);
         case "SEC | Algoritme": return JSON.parse(SEC_ALGORTIME);
+        case "Netwerken | Begrippen": return JSON.parse(NET_BEGRIPPEN);
     }
 }
