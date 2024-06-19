@@ -19,17 +19,12 @@
     <!-- Primary styling -->
     <link rel="stylesheet" type="text/css" href="./../css/main.css" />
 
-    <script>
-
-    </script>
-
-    <style>
-
-    </style>
+    <script src="./json/AllLessons.js" defer></script>
+    <script src="./js/lesson.js" defer></script>
+    <script src="./js/customize.js" defer></script>
 </head>
 
 <body>
-
     <!-- Navigation | v1.1 -->
     <div id="navigation">
         <div id="navBackground"></div>
@@ -48,54 +43,58 @@
     </div>
     <!-- /Navigation | v1.1  -->
 
-    <!-- Body -->
-    <div id="body">
-        <center>
-            <h1>Mode: </h1>
-            <div class="radio-toolbar" id="modeContainer">
-                <span>
-                    <input type="radio" name="lessonMode" id="regular" value="regular" checked>
-                    <label for="regular">Regular</label>
-                </span>
-            </div>
+    <div class="overlay-container">
+        <!-- Body -->
+        <div id="body">
+            <center>
+                <h1>Mode: </h1>
+                <div class="radio-toolbar" id="modeContainer">
+                    <span>
+                        <input type="radio" name="lessonMode" id="regular" value="regular" checked>
+                        <label for="regular">Regular</label>
+                    </span>
+                </div>
 
-            <br>
-            <h1>Multi-language-support: </h1>
-            <div class="radio-toolbar" id="multiLanguageContainer">
+                <br>
+                <h1>Multi-language-support: </h1>
+                <div class="radio-toolbar" id="multiLanguageContainer">
 
-            </div>
+                </div>
 
-            <br>
-            <h1>Add Lesson: </h1>
-            <div>
+                <br>
+                <h1>Add Lesson: </h1>
+                <div>
 
-            </div>
+                </div>
 
-            <br>
-            <h1>Shuffle Lesson</h1>
-            <div>
-                <input type="checkbox" name="shuffleLesson" id="shuffleLesson" value="checked" checked>
-            </div>
+                <br>
+                <h1>Shuffle Lesson</h1>
+                <div>
+                    <input type="checkbox" name="shuffleLesson" id="shuffleLesson" value="checked" checked>
+                </div>
 
-            <br>
-            <h1>Anser Mode</h1>
-            <div class="radio-toolbar">
-                <input type="radio" name="answerMode" id="answerModeText" value="answerModeText" checked>
-                <label for="answerModeText">Text</label>
-                <input type="radio" name="answerMode" id="answerModeButton" value="answerModeButton">
-                <label for="answerModeButton">Button</label>
-            </div>
+                <br>
+                <h1>Answer Mode</h1>
+                <div class="radio-toolbar">
+                    <input type="radio" name="answerMode" id="answerModeText" value="answerModeText" checked>
+                    <label for="answerModeText">Text</label>
+                    <input type="radio" name="answerMode" id="answerModeButton" value="answerModeButton">
+                    <label for="answerModeButton">Button</label>
+                </div>
 
-            <br><br>
-            <button onclick="StartWithSettings()">Start</button>
-            <button onclick="ViewLessonClick()">View Lesson Content</button>
-        </center>
+                <br><br>
+                <button onclick="StartWithSettings()">Start</button>
+                <button onclick="ViewLessonClick()">View Lesson Content</button>
+            </center>
+        </div>
+        <!-- Body -->
+
+        <!-- Lesson Content -->
+        <div class="overlay">
+            <p>AAA</p>
+        </div>
+        <!-- /Lesson Content -->
     </div>
-    <!-- Body -->
-
-    <script src="./json/AllLessons.js"></script>
-    <script src="./js/lesson.js"></script>
-    <script src="./js/customize.js"></script>
 
 </body>
 

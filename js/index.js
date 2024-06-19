@@ -1,13 +1,13 @@
-const lessonCardContainer = document.getElementById('lessonCardContainer');
+const lessonCardContainer = document.querySelector('#lessonCardContainer');
 
-function OnWindowLoad() {
+window.addEventListener('DOMContentLoaded', (e) => {
     GetAllLessons();
     
     for (let i = 0; i < AllLessons.length; i++) {
         AllLessons[i].id = i;
         addLessonCardToContainer(AllLessons[i]);
     }
-}
+});
 
 const addLessonCardToContainer = (lesson) => {
     // Create Element
@@ -19,7 +19,7 @@ const addLessonCardToContainer = (lesson) => {
 
     // Create Button
     const button = document.createElement('button');
-    button.classList = ['lessonCard'];
+    button.classList.add('lessonCard');
 
     const lessonNameText = document.createElement('span');
     lessonNameText.textContent = lesson.name;
@@ -29,7 +29,7 @@ const addLessonCardToContainer = (lesson) => {
 
     const lessonLanguageText = document.createElement('span');
     lessonLanguageText.textContent = Object.keys(LanguageCodes)[lesson.learning] + '-' + Object.keys(LanguageCodes)[lesson.learningFrom];
-    lessonLanguageText.classList = ['grey'];
+    lessonLanguageText.classList.add('grey');
 
     // Build Element
     button.appendChild(lessonNameText);
@@ -43,5 +43,3 @@ const addLessonCardToContainer = (lesson) => {
     // Add to Screen
     lessonCardContainer.appendChild(card);
 }
-
-window.onload = OnWindowLoad();

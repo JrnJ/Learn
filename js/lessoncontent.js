@@ -1,45 +1,63 @@
 const para = new URLSearchParams(window.location.search);
 const exerciseParam = para.get("exercise");
 
-const CurrentLesson = GetLessonByName(exerciseParam);
+const currentLesson = GetLessonByName(exerciseParam);
 
-const lessonContentContainer = document.querySelector('#lessonContentContainer');
+window.addEventListener('DOMContentLoaded', (e) => {
+    showLessonContent(currentLesson);
+});
 
-function addContent(content) {
-    const li = document.createElement('li');
+function showLessonContent(lesson) {
+    // Create Table
+    const tableContainer = document.createElement('div');
+    tableContainer.classList.add('overflow-x');
 
-    let newContent = [];
+    const button = document.createElement('button');
+    button.textContent = "Back to Lesson";
+    button.id = "back-to-lesson";
+    tableContainer.appendChild(button);
 
-    if (content != null) {
-        newContent.push(content.to);
+    const table = document.createElement('table');
+    tableContainer.appendChild(table);
 
-        for (let i = 0; i < content.from.length; i++) {
-            newContent.push(content.from[i]);
-        }
+    // Create Table Header
+    const thead = document.createElement('thead');
+    const tr = document.createElement('tr');
+    tr.appendChild(createTableHeader("From"));
+    tr.appendChild(createTableHeader("To"));
+
+    thead.appendChild(tr);
+    table.appendChild(thead);
+
+    // Load Content
+    const tbody = document.createElement('tbody');
+    for (let i = 0; i < lesson.content.length; i++) {
+        tbody.appendChild(createContentRow(lesson.content[i]));
     }
-
-    // Build Element
-    for (let i = 0; i < 4; i++) {
-        const learningInput = document.createElement('span');
-        // learningInput.type = "text";
-        // learningInput.placeholder = "placeholder hi";
-        if (content != null) {
-            learningInput.innerText = newContent[i];
-        }
-        li.appendChild(learningInput);
-    }
+    table.appendChild(tbody);
 
     // Add to Page
-    lessonContentContainer.appendChild(li);
+    document.querySelector('#lesson-content-container').appendChild(tableContainer);
+
+    return tableContainer;
 }
 
-function OnWindowLoaded() {
-    // Load Content
-    for (let i = 0; i < CurrentLesson.content.length; i++) {
-        addContent(CurrentLesson.content[i]);
-    }
-
-    document.title = "View Lesson | " + exerciseParam;
+function createTableHeader(content) {
+    const th = document.createElement('th');
+    th.textContent = content;
+    return th;
 }
 
-window.onload = OnWindowLoaded();
+function createContentRow(translation) {
+    const tr = document.createElement('tr');
+
+    const td1 = document.createElement('td');
+    td1.textContent = translation.from[0];
+
+    const td2 = document.createElement('td');
+    td2.textContent = translation.to;
+
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    return tr;
+}

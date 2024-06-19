@@ -1,7 +1,7 @@
 //
 // READ THIS!!!
 //
-// This is because I can read files in a github pages hosted site
+// This is because I cant read files in a github pages hosted site
 // No node wont work either on github pages
 // Dont forget to add these in lessons.js::GetAllLessons();
 
