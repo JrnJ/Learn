@@ -1,10 +1,11 @@
+import { getLessonByName } from './lessonloader.js';
+
 const para = new URLSearchParams(window.location.search);
 const exerciseParam = para.get("exercise");
 
-const currentLesson = GetLessonByName(exerciseParam);
-
-window.addEventListener('DOMContentLoaded', (e) => {
-    showLessonContent(currentLesson);
+window.addEventListener('DOMContentLoaded', async () => {
+    const lesson = await getLessonByName(exerciseParam);
+    showLessonContent(lesson);
 });
 
 function showLessonContent(lesson) {
@@ -15,6 +16,9 @@ function showLessonContent(lesson) {
     const button = document.createElement('button');
     button.textContent = "Back to Lesson";
     button.id = "back-to-lesson";
+    button.addEventListener('click', () => {
+        window.location.href = "./customize.html?exercise=" + lesson.name
+    });
     tableContainer.appendChild(button);
 
     const table = document.createElement('table');
