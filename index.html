@@ -9,35 +9,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Likely not up to date -->
-    <!-- Copied from Primary styling -->
-    <link rel="stylesheet" type="text/css" href="./css/main.css" />
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
     <link rel="stylesheet" type="text/css" href="./css/navigation.css" />
 
-    <!-- Primary styling -->
-    <link rel="stylesheet" type="text/css" href="./../css/main.css" />
+    <!-- Themes -->
+    <link rel="stylesheet" type="text/css" href="" id="theme-current" />
+
+    <!-- Scripts -->
+    <script src="./js/main.js" defer></script>
 </head>
 
 <body>
 
-    <!-- Navigation | v1.1 -->
-    <div id="navigation">
-        <div id="navBackground"></div>
-
-        <div id="navContent">
-            <div class="navImageBorder">
-                <a href="https://jeroenj.com/Home"><button class="navImage"></button></a>
-                <div class="navWikiInfo">
-                    <span class="navTitle">Learn!</span>
-                    <br><span class="navTitle">Card learning tool</span>
-                    <br><a href="https://github.com/JrnJ"
-                        style="color: #ffd9d9; text-decoration: none; font-weight: bold;">By JeroenJ</a>
+    <!-- <Navigation v2.0> -->
+    <nav>
+        <div class="nav-content">
+            <div class="nav-left">
+                <div class="nav-img">
+                    <img src="./3dSphere.png">
+                </div>
+                <div class="nav-titles">
+                    <p class="nav-title-primary">Learn!</p>
+                       <p class="nav-title-secondary">Learning tool</p>
+                    <p class="nav-author gradient-text">JeroenJ</p>
                 </div>
             </div>
+            <div>
+                <label for="theme-selector">Theme</label>
+                <select id="theme-selector" name="theme-selector"></select>
+            </div>
         </div>
-    </div>
-    <!-- /Navigation | v1.1  -->
+    </nav>
+    <!-- </Navigation v2.0> -->
 
     <!-- Body -->
     <div id="body">

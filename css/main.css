@@ -1,19 +1,19 @@
 /*
-    #version: 1.6
-    #2024 June 19
+    #version: 1.8
+    #2024 October 2
 */
 
-:root {
+/* :root {
     --text-white: white;
 
-    --background-primary: #121212;
+    --background-primary: #ffffff;
 
     --background-content-primary: #161616;
     --background-content-secondary: #181818;
     --background-content-active: #202020;
 
     --border-color: #787878;
-}
+} */
 
 * {
     font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
@@ -157,6 +157,19 @@ input:focus {
 
 /* <Checkbox Button> */
 
+/* <Select> */
+select {
+    background-color: var(--background-content-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+}
+
+select:focus {
+    outline-color: none;
+}
+/* </Select> */
+
 /* <TextArea> */
 textarea {
     background-color: var(--background-primary);
@@ -201,4 +214,32 @@ th.devide-x:last-child {
 .overflow-y {
     overflow-y: auto;
 }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    background-color: none !important;
+}
+
+.overlay * {
+    pointer-events: auto;
+}
 /* </Extra> */
+
+/* <Cookies> */
+.cookies-banner {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    background-color: var(--background-content-primary);
+    border-radius: 0.25rem;
+    padding: 2rem;
+}
+/* </Cookies> */

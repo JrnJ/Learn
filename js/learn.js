@@ -11,6 +11,7 @@ const answerModeButton = document.getElementById("answerModeButton");
 
 const lessonTitle = document.getElementById("lessonTitle");
 const question = document.getElementById("question");
+const questionAnswerText = document.querySelector('#questionAnswerText');
 const questionAnswer = document.getElementById("questionAnswer");
 
 const questionsLeft = document.getElementById("questionsLeft");
@@ -35,6 +36,21 @@ let OverrideIsAnswerWrong = false;
 
 // TODO add this to the JSON of a lesson OR to the customization of a lesson
 const makeLessonRandom = shuffleParam;
+
+document.addEventListener('keypress', (e) => {
+    console.log(e.code);
+    switch (e.code) {
+        case "Space":
+            RevealAnswer();
+            break;
+        case "Digit1":
+            Meow(true);
+            break;
+        case "Digit2":
+            Meow(false);
+            break;
+    }
+});
 
 function StartLesson(questions) {
     // Set Defaults
@@ -78,7 +94,7 @@ function RevealAnswer(param) {
         OverrideIsAnswerWrong = true;
     }
     
-    question.textContent += " = " + CurrentLesson.content[LessonQuestions[0]].to;
+    questionAnswerText.textContent = CurrentLesson.content[LessonQuestions[0]].to;
 
     submitAnswerCorrect.disabled = false;
     submitAnswerWrong.disabled = false;
@@ -132,6 +148,7 @@ function NextQuestion() {
         progressBarInner.style.width = (Math.floor((100.0 / LessonLength * (LessonLength - LessonQuestions.length))) + "%");
 
         question.textContent = CurrentLesson.content[LessonQuestions[0]].from[0]; // question.textContent = LessonArray[Lesson[0]].hiragana;
+        questionAnswerText.textContent = "";
         
         submitAnswerCorrect.disabled = true;
         submitAnswerWrong.disabled = true;

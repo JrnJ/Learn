@@ -11,13 +11,20 @@
 
     <link rel="stylesheet" type="text/css" href="./css/learn.css" />
 
-    <!-- Likely not up to date -->
-    <!-- Copied from Primary styling -->
+    <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="./css/main.css" />
     <link rel="stylesheet" type="text/css" href="./css/navigation.css" />
 
-    <!-- Primary styling -->
-    <link rel="stylesheet" type="text/css" href="./../css/main.css" />
+    <!-- Themes -->
+    <link rel="stylesheet" type="text/css" href="" id="theme-current" />
+
+    <!-- Scripts -->
+    <script src="./js/main.js" defer></script>
+
+    <!-- Scripts -->
+    <script src="./js/lesson.js" defer></script>
+    <script src="./json/AllLessons.js" defer></script>
+    <script src="./js/learn.js" defer></script>
 </head>
 
 <body>
@@ -58,7 +65,8 @@
     <main>
         <h3 id="lessonTitle"></h3>
 
-        <span id="question" class="unselectable" style="font-size: 24px;"></span>
+        <p id="question" class="unselectable" style="font-size: 24px;"></p>
+        <p id="questionAnswerText" class="unselectable" style="font-size: 24px;"></p>
 
         <div id="answerModeText" style="visibility: collapse; width: 100%;">
             <input id="questionAnswer" type="text"><br>
@@ -139,10 +147,6 @@
         </center>
     </div> -->
     <!-- /Body -->
-
-    <script src="./js/lesson.js"></script>
-    <script src="./json/AllLessons.js"></script>
-    <script src="./js/learn.js"></script>
 
 </body>
 

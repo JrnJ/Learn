@@ -58,6 +58,7 @@ function GetAllLessons() {
     // AllLessons.push(JSON.parse(ITIL_ALL));
     // AllLessons.push(JSON.parse(ITIL_H4));
     AllLessons.push(JSON.parse(ITIL));
+    AllLessons.push(JSON.parse(ITIL_H4));
 }
 
 const GetLessonByName = (name) => {
@@ -73,5 +74,6 @@ const GetLessonByName = (name) => {
         // case "ITIL_ALL": return JSON.parse(ITIL_ALL);
         // case "ITIL-H4": return JSON.parse(ITIL_H4);
         case "ITIL": return JSON.parse(ITIL);
+        case "ITIL H4": return JSON.parse(ITIL_H4);
     }
 }
