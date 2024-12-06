@@ -1,12 +1,10 @@
-import { getLessonByName } from './lessonloader.js';
-
 const para = new URLSearchParams(window.location.search);
 const exerciseParam = para.get("exercise");
 const modeParam = para.get("mode");
 const shuffleParam = para.get("shuffle");
 const answerMode = para.get("answerMode");
 
-let CurrentLesson;
+const CurrentLesson = GetLessonByName(exerciseParam);
 
 const answerModeText = document.getElementById("answerModeText");
 const answerModeButton = document.getElementById("answerModeButton");
@@ -38,48 +36,6 @@ let OverrideIsAnswerWrong = false;
 
 // TODO add this to the JSON of a lesson OR to the customization of a lesson
 const makeLessonRandom = shuffleParam;
-
-document.addEventListener('DOMContentLoaded', async () => {
-
-    CurrentLesson = await getLessonByName(exerciseParam);
-
-    if (modeParam != "regular") {
-        // Find Mode
-        for (let i = 0; i < CurrentLesson.modes.length; i++) {
-            if (CurrentLesson.modes[i].name == modeParam) {
-                const mode = CurrentLesson.modes[i];
-                CurrentLesson.content = CurrentLesson.content.slice(mode.rangeStart, mode.rangeEnd);
-                break; 
-            }
-        }
-    }
-
-    if (answerMode == 'answerModeText') {
-        answerModeText.style.visibility = 'visible';
-    } else if (answerMode == 'answerModeButton') {
-        answerModeButton.style.visibility = 'visible';
-    } else {
-        // Uhhh
-        answerModeText.style.visibility = 'visible';
-    }
-    
-    // Fill Necessarty Data
-    lessonTitle.textContent = exerciseParam + " : " + modeParam;
-    document.title = "Lesson | " + exerciseParam;
-
-    // Check for Enter
-    questionAnswer.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            CheckAnswer();
-        }
-    });
-
-    // Buttons
-
-
-    // Start
-    StartLesson(CurrentLesson.content);
-});
 
 document.addEventListener('keypress', (e) => {
     console.log(e.code);
@@ -247,6 +203,41 @@ function NextClick() {
     window.location = './results.html?exercise=' + exerciseParam + '&mode=' + modeParam + '&shuffle=' + shuffleParam + "&answerMode=" + answerMode;
 }
 
+const OnWindowLoaded = () => {
+    // Check for enter
+    questionAnswer.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            CheckAnswer();
+        }
+    });
+
+    if (modeParam != "regular") {
+        // Find Mode
+        for (let i = 0; i < CurrentLesson.modes.length; i++) {
+            if (CurrentLesson.modes[i].name == modeParam) {
+                const mode = CurrentLesson.modes[i];
+                CurrentLesson.content = CurrentLesson.content.slice(mode.rangeStart, mode.rangeEnd);
+                break; 
+            }
+        }
+    }
+
+    if (answerMode == "answerModeText") {
+        answerModeText.style.visibility = "visible";
+    } else if (answerMode == "answerModeButton") {
+        answerModeButton.style.visibility = "visible";
+    } else {
+        // Uhhh
+        answerModeText.style.visibility = "visible";
+    }
+    
+    // Fill Necessarty Data
+    lessonTitle.textContent = exerciseParam + " : " + modeParam;
+    document.title = "Lesson | " + exerciseParam;
+
+    StartLesson(CurrentLesson.content);
+}
+
 function hiraganaToRomaji(hiragana) {
     const hiraganaMap = {
       あ: "a", い: "i", う: "u", え: "e", お: "o",
@@ -309,3 +300,5 @@ function hiraganaToRomaji(hiragana) {
   
     return romaji;
 }
+
+window.onload = OnWindowLoaded();

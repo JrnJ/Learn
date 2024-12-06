@@ -21,9 +21,9 @@
     <!-- Scripts -->
     <script src="./js/main.js" defer></script>
 
-    <script type="module" src="./js/lessonloader.js"></script>
-    <script type="module" src="./js/lesson.js"></script>
-    <script type="module" src="./js/customize.js"></script>
+    <script src="./json/AllLessons.js" defer></script>
+    <script src="./js/lesson.js" defer></script>
+    <script src="./js/customize.js" defer></script>
 </head>
 
 <body>
@@ -88,8 +88,8 @@
                 </div>
 
                 <br><br>
-                <button id="startLesson">Start</button>
-                <button id="viewLesson">View Lesson Content</button>
+                <button onclick="StartWithSettings()">Start</button>
+                <button onclick="ViewLessonClick()">View Lesson Content</button>
             </center>
         </div>
         <!-- Body -->
