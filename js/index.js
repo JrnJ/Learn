@@ -1,15 +1,17 @@
+import { getAllLessonsData } from './lessonloader.js';
+import { LanguageCodes } from './lesson.js'
+
 const lessonCardContainer = document.querySelector('#lessonCardContainer');
 
-window.addEventListener('DOMContentLoaded', (e) => {
-    GetAllLessons();
-    
-    for (let i = 0; i < AllLessons.length; i++) {
-        AllLessons[i].id = i;
-        addLessonCardToContainer(AllLessons[i]);
-    }
+window.addEventListener('DOMContentLoaded', async () => {
+    const lessons = await getAllLessonsData();
+
+    lessons.lessons.forEach(lesson => {
+        lessonCardContainer.appendChild(createLessonCard(lesson));
+    })
 });
 
-const addLessonCardToContainer = (lesson) => {
+const createLessonCard = (lesson) => {
     // Create Element
     const card = document.createElement('li');
 
@@ -40,6 +42,5 @@ const addLessonCardToContainer = (lesson) => {
 
     card.appendChild(cardLink);
 
-    // Add to Screen
-    lessonCardContainer.appendChild(card);
+    return card;
 }

@@ -1,12 +1,31 @@
+import { getLessonByName } from './lessonloader.js';
+
 const para = new URLSearchParams(window.location.search);
 const exerciseParam = para.get("exercise");
 
 const modeContainer = document.getElementById("modeContainer");
 const multiLanguageContainer = document.getElementById("multiLanguageContainer");
 
-let LessonCustomizing;
+document.addEventListener('DOMContentLoaded', async () => {
+    if (exerciseParam != "Any") {
+        const lesson = await getLessonByName(exerciseParam);
 
-const StartWithSettings = () => {
+        if (lesson != null) {
+            addModes(lesson);
+            addMultiAnswerOptions(lesson);
+        }
+    }
+
+    document.querySelector('#startLesson').addEventListener('click', () => {
+        startWithSettings();
+    });
+
+    document.querySelector('#viewLesson').addEventListener('click', () => {
+        window.location = './lessoncontent.html?exercise=' + exerciseParam;
+    });
+});
+
+const startWithSettings = () => {
     const modeValue = document.querySelector('input[name="lessonMode"]:checked').value;
     const shuffleValue = document.querySelector('#shuffleLesson').checked;
     const answerModeValue = document.querySelector('input[name="answerMode"]:checked').value;
@@ -17,19 +36,23 @@ const StartWithSettings = () => {
         '&answerMode=' + answerModeValue;
 }
 
-function AddModes() {
-    for (let i = 0; i < LessonCustomizing.modes.length; i++) {
-        AddModeElement(LessonCustomizing.modes[i].name);
+function addModes(lesson) {
+    if (lesson.modes == null) {
+        return;
+    }
+
+    for (let i = 0; i < lesson.modes.length; i++) {
+        addModeElement(lesson.modes[i].name);
     }
 }
 
-function AddMultiAnswerOptions() {
-    for (let i = 0; i < LessonCustomizing.content[0].from.length; i++) {
-        AddMultiAnswerElement(i, i == 0);
+function addMultiAnswerOptions(lesson) {
+    for (let i = 0; i < lesson.content[0].from.length; i++) {
+        addMultiAnswerElement(i, i == 0);
     }
 }
 
-function AddModeElement(name) {
+function addModeElement(name) {
     // Add Content
     const containerElement = document.createElement('span');
 
@@ -50,7 +73,7 @@ function AddModeElement(name) {
     modeContainer.appendChild(containerElement);
 }
 
-function AddMultiAnswerElement(index, first) {
+function addMultiAnswerElement(index, first) {
     // Add Content
     const containerElement = document.createElement('span');
 
@@ -74,34 +97,15 @@ function AddMultiAnswerElement(index, first) {
     multiLanguageContainer.appendChild(containerElement);
 }
 
-function ViewLessonClick() {
-    window.location = './lessoncontent.html?exercise=' + exerciseParam;
-}
+// function loadFromJSONClick() {
+//     // Get Element
+//     const jsonLessonInput = document.getElementById("jsonLessonInput");
 
-function LoadFromJSONClick() {
-    // Get Element
-    const jsonLessonInput = document.getElementById("jsonLessonInput");
-
-    // Set JSON_LESSON
-    JSON_LESSON = jsonLessonInput.value;
-    LessonCustomizing = GetLessonByName(exerciseParam);
-    console.log(LessonCustomizing);
+//     // Set JSON_LESSON
+//     JSON_LESSON = jsonLessonInput.value;
+//     lessonCustomizing = getLessonByName(exerciseParam);
+//     console.log(lessonCustomizing);
     
-    // TODO: LocalStorage for this I guess
-    // https://stackoverflow.com/questions/53904944/how-to-keep-a-js-variable-the-same-even-after-refreshing-page
-}
-
-function OnWindowLoaded() {
-
-    if (exerciseParam != "Any") {
-        const tempLesson = GetLessonByName(exerciseParam);
-
-        if (tempLesson != null) {
-            LessonCustomizing = tempLesson;
-            AddModes();
-            AddMultiAnswerOptions();
-        }
-    }
-}
-
-window.onload = OnWindowLoaded();
+//     // TODO: LocalStorage for this I guess
+//     // https://stackoverflow.com/questions/53904944/how-to-keep-a-js-variable-the-same-even-after-refreshing-page
+// }
