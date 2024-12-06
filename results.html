@@ -9,9 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="css/learn.css" />
-    <link rel="stylesheet" type="text/css" href="css/results.css" />
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <link rel="stylesheet" type="text/css" href="./css/learn.css" />
+    <link rel="stylesheet" type="text/css" href="./css/results.css" />
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="./css/main.css" />
@@ -27,15 +27,36 @@
 </head>
 
 <body>
+    <!-- <Navigation v2.1> -->
+    <nav>
+        <div class="nav-content">
+            <div class="nav-left">
+                <a href="https://learn.jeroenj.com" class="nav-img">
+                    <img src="./3dSphere.png">
+                </a>
+                <div class="nav-titles">
+                    <p class="nav-title-primary">Learn!</p>
+                       <p class="nav-title-secondary">Learning tool</p>
+                    <p class="nav-author gradient-text">JeroenJ</p>
+                </div>
+            </div>
+            <div>
+                <label for="theme-selector">Theme</label>
+                <select id="theme-selector" name="theme-selector"></select>
+            </div>
+        </div>
+    </nav>
+    <!-- </Navigation v2.1> -->
 
-    <center>
-        <span id="finishedText"></span><br><br>
-
-        <button id="startRedo">Redo</button><br><br>
-        <button id="startRedoCustomize">Redo and Customize</button><br><br>
-        <button id="toHomePage">Home Page</button>
-    </center>
-
+    <div id="body">
+        <center>
+            <span id="finishedText"></span><br><br>
+    
+            <button id="startRedo">Redo</button><br><br>
+            <button id="startRedoCustomize">Redo and Customize</button><br><br>
+            <button id="toHomePage">Home Page</button>
+        </center>
+    </div>
 </body>
 
 </html>
