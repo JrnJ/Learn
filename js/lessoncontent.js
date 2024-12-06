@@ -3,8 +3,9 @@ import { getLessonByName } from './lessonloader.js';
 const para = new URLSearchParams(window.location.search);
 const exerciseParam = para.get("exercise");
 
-window.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const lesson = await getLessonByName(exerciseParam);
+    document.querySelector('#lessonName').textContent = lesson.name + " | " + lesson.translatedName + " " + lesson.content.length + " questions.";
     showLessonContent(lesson);
 });
 

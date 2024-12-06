@@ -70,20 +70,20 @@
 
         <div id="answerModeText" style="visibility: collapse; width: 100%;">
             <input id="questionAnswer" type="text"><br>
-            <button class="submitAnswer" onclick="CheckAnswer()">Check</button>
+            <button class="submitAnswer" id="checkAnswer">Check</button>
         </div>
 
         <div id="answerModeButton" style="visibility: collapse;">
-            <button class="submitAnswer" onclick="RevealAnswer()">Check</button>
+            <button class="submitAnswer" id="revealAnswer">Check</button>
 
             <div style="display: flex;">
-                <button id="submitAnswerCorrect" disabled class="submitAnswer" onclick="Meow(true)" style="margin-right: 5px;">Correct</button>
-                <button id="submitAnswerWrong" disabled onclick="Meow(false)" style="margin-left: 5px;">Wrong</button>
+                <button id="submitAnswerCorrect" disabled class="submitAnswer" style="margin-right: 5px;">Correct</button>
+                <button id="submitAnswerWrong" disabled style="margin-left: 5px;">Wrong</button>
             </div>
         </div>
 
         <div id="lessonRetries"></div><br>
-        <button id="nextButton" onclick="NextClick()" hidden>Next</button>
+        <button id="nextButton" hidden>Next</button>
     </main>
 
     <nav>

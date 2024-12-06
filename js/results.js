@@ -4,6 +4,23 @@ const modeParam = para.get("mode");
 
 const finishedText = document.getElementById("finishedText");
 
+document.addEventListener('DOMContentLoaded', () => {
+    finishedText.textContent = "Finished " + exerciseParam + "!";
+
+    // Buttons
+    document.querySelector('#startRedo').addEventListener('click', () => {
+        StartRedo();
+    });
+
+    document.querySelector('#startRedoCustomize').addEventListener('click', () => {
+        StartRedoCustomize();
+    });
+
+    document.querySelector('#toHomePage').addEventListener('click', () => {
+        HomePage();
+    });
+});
+
 const StartRedo = () => {
     window.location = './learn.html?exercise=' + exerciseParam + '&mode=' + modeParam;
 }
@@ -15,9 +32,3 @@ const StartRedoCustomize = () => {
 const HomePage = () => {
     window.location = './index.html';
 }
-
-const OnWindowLoaded = () => {
-    finishedText.textContent = "Finished " + exerciseParam + "!";
-}
-
-window.onload = OnWindowLoaded();

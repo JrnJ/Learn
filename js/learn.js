@@ -75,7 +75,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     // Buttons
+    document.querySelector('#checkAnswer').addEventListener('click', () => {
+        CheckAnswer();
+    });
 
+    document.querySelector('#revealAnswer').addEventListener('click', () => {
+        RevealAnswer();
+    });
+
+    document.querySelector('#nextButton').addEventListener('click', () => {
+        NextClick();
+    });
+
+    document.querySelector('#submitAnswerCorrect').addEventListener('click', () => {
+        Meow(true);
+    });
+
+    document.querySelector('#submitAnswerWrong').addEventListener('click', () => {
+        Meow(false);
+    });
 
     // Start
     StartLesson(CurrentLesson.content);

@@ -1,3 +1,5 @@
+import { Lesson, Translation, LessonMode, Dictionary, Languages, LanguageCodes } from './lesson.js';
+
 const lessonContentContainer = document.querySelector('#lessonContentContainer');
 
 const lessonNameInput = document.getElementById("lessonNameInput");
@@ -14,6 +16,23 @@ const outputText = document.getElementById("outputText");
 let LessonCreating;
 
 let Content = [];
+
+document.addEventListener('DOMContentLoaded', () => {
+    LessonCreating = new Lesson(0, "", "", "", "", []);
+
+    // Buttons
+    document.querySelector('#loadLesson').addEventListener('click', () => {
+        LoadLessonClick();
+    });
+
+    document.querySelector('#addContent').addEventListener('click', () => {
+        addContentClick();
+    });
+
+    document.querySelector('#saveLesson').addEventListener('click', () => {
+        SaveLessonClick();
+    });
+});
 
 function addContentClick() {
     addContent();
@@ -151,9 +170,3 @@ function addContent(content) {
 //     // Add to page
 //     lessonContentElement.appendChild(containerElement);
 // }
-
-function OnWindowLoaded() {
-    LessonCreating = new Lesson(0, "", "", "", "", []);
-}
-
-window.onload = OnWindowLoaded();

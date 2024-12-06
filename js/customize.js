@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (lesson != null) {
             addModes(lesson);
             addMultiAnswerOptions(lesson);
+            document.querySelector('#lessonName').textContent = lesson.name + " | " + lesson.translatedName + " " + lesson.content.length + " questions.";
         }
     }
 
