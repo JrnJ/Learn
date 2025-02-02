@@ -30,6 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelector('#saveLesson').addEventListener('click', () => {
+        const clickSound = new Audio('../audio/interface-click-sound.wav');
+        clickSound.volume = 1.0;
+        clickSound.play();
+
         SaveLessonClick();
     });
 });
