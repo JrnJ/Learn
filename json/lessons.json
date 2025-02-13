@@ -18,10 +18,21 @@
             "translatedName": "ITIL H5",
             "learning": "1",
             "learningFrom": "1"
+        },{
+            "name": "ITIL H5 DS",
+            "translatedName": "ITIL H5 DS",
+            "learning": "1",
+            "learningFrom": "1"
         },
         {
             "name": "ITIL H6",
             "translatedName": "ITIL H6",
+            "learning": "1",
+            "learningFrom": "1"
+        },
+        {
+            "name": "ITIL H6 DS",
+            "translatedName": "ITIL H6 DS",
             "learning": "1",
             "learningFrom": "1"
         },
